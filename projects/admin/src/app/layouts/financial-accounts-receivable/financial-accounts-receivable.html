@@ -1,0 +1,164 @@
+<section class="mb-20 w-full flex items-center justify-between">
+  <label>Acompanhar todas as receitas e recebimentos dos estudantes</label>
+  <div class="default_btn">
+    <button pRipple
+      class="flex gap-4 justify-center items-center"
+    >
+      <i class="pi pi-plus" style="font-size: 0.7rem"></i>
+      <span>Nova Conta</span>
+    </button>
+  </div>
+</section>
+<section class="w-full flex flex-col gap-5 items-center">
+  <article class="w-full flex gap-2 items-center justify-between">
+    <div>
+      <p-floatlabel variant="on">
+        <p-datepicker
+          [(ngModel)]="dateValue"
+          dateFormat="dd/mm/yy"
+          inputId="on_label" showIcon iconDisplay="input"
+          class="w-60"
+          />
+          <label for="on_label">Por Período</label>
+      </p-floatlabel>
+    </div>
+    <div class="default_btn flex gap-2">
+      <button pRipple
+      >
+        Ontem
+      </button>
+      <button pRipple
+      >
+        Hoje
+      </button>
+    </div>
+  </article>
+  <article class="w-full flex gap-3">
+    <div class="w-full default_card">
+      <h2>
+        Total de Alunos
+      </h2>
+      <h3 #countUpQty_active>0</h3>
+    </div>
+    <div class="w-full default_card">
+      <h2>
+        Total a Receber
+      </h2>
+      <h3 #countUpQty_active>0</h3>
+    </div>
+    <div class="w-full default_card">
+      <h2>
+        Recebido
+      </h2>
+      <h3 #countUpQty_active>0</h3>
+    </div>
+    <div class="w-full default_card">
+      <h2>
+        A Receber
+      </h2>
+      <h3 #countUpQty_totalActiveQty>0</h3>
+    </div>
+    <div class="w-full default_card">
+      <h2>
+        Vencida(s)
+      </h2>
+      <h3 #countUpQty_inactive>0</h3>
+    </div>
+  </article>
+  <article class="w-full ag_grid">
+    <div class="w-full mb-1 mt-3 grid gap-2 min-sm:flex min-sm:justify-between min-sm:items-center">
+      <p-floatlabel variant="on" class="w-full xl:w-1/3 lg:w-1/3 min-sm:w-1/2 order-1">
+        <p-iconfield>
+          <p-inputicon class="pi pi-search" />
+          <input type="text" pInputText id="lbl_search" [(ngModel)]="searchInput" autocomplete="off" (input)="onSearch()" />
+        </p-iconfield>
+          <label for="lbl_search">
+            Search
+          </label>
+      </p-floatlabel>
+
+      <div class="w-fit flex gap-10 order-2">
+        <p-selectbutton [options]="modalityOptions" [(ngModel)]="modalityValue" optionLabel="label" optionValue="value"  />
+      </div>
+    </div>
+
+    @if (tableLoading)
+    {
+      <div class="loader">
+        <span class="card_loader"></span>
+      </div>
+    }
+    @else
+    {
+      <ag-grid-angular
+        class="ag_theme_alpine w-full"
+        [rowData]="pageData"
+        [columnDefs]="columnDefs"
+        [animateRows]="true"
+        [domLayout]="'autoHeight'"
+        [pagination]="true"
+        [paginationPageSize]="pageSize"
+        [suppressPaginationPanel]="true"
+        [headerHeight]="headerHeight"
+        [rowHeight]="rowHeight"
+        [rowSelection]="rowSelection"
+        [gridOptions]="gridOptions"
+        (gridReady)="onGridReady($event)"
+      >
+      </ag-grid-angular>
+
+      <p>
+        A mostrar {{ startIndex + 1 }} a {{ endIndex }} de {{ showTotalPag }} registos
+      </p>
+
+      <div class="pagination">
+        <button (click)="goToStart()"
+          [disabled]="currentPage === 1"
+          [class.disabled]="currentPage === 1"
+          class="btn_only_icon"
+        >
+          <i class="pi pi-angle-double-left"></i>
+        </button>
+        <button (click)="gotToPrevious()"
+          [disabled]="currentPage === 1"
+          [class.disabled]="currentPage === 1"
+          class="btn_only_icon"
+        >
+          <i class="pi pi-angle-left"></i>
+        </button>
+
+        <div class="ag_number">
+          @for (page of totalPagesArray; track $index) {
+            @if (isNumber(page)) {
+              <button
+                (click)="goToPage(page)"
+                [class.active]="currentPage === page"
+                class="btn_only_icon"
+              >
+                {{ page }}
+              </button>
+            }
+            @if (!isNumber(page)) {
+              <span class="cursor-default text-gray-400 mx-1">.&nbsp;.&nbsp;.</span>
+            }
+          }
+        </div>
+
+        <button (click)="goToNext()"
+          [disabled]="currentPage === totalPages"
+          [class.disabled]="currentPage === totalPages"
+          class="btn_only_icon"
+        >
+          <i class="pi pi-angle-right"></i>
+        </button>
+        <button (click)="goToEnd()"
+          [disabled]="currentPage === totalPages"
+          [class.disabled]="currentPage === totalPages"
+          class="btn_only_icon"
+        >
+          <i class="pi pi-angle-double-right"></i>
+        </button>
+      </div>
+    }
+  </article>
+</section>

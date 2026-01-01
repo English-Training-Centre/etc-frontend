@@ -1,0 +1,23 @@
+
+
+.password-icon {
+  cursor: pointer;
+  &:hover {
+    color: oklch(68.285% 0.12991 158.169) !important;
+  }
+}
+
+.enter-animation {
+  animation: slide-fade 1s ease-in-out;
+}
+
+@keyframes slide-fade {
+  from {
+    opacity: 0;
+    transform: translateY(-10%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

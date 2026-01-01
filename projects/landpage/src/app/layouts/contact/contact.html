@@ -1,0 +1,95 @@
+<section class="contact-us px-80 py-40 w-full flex flex-col gap-3 justify-center items-center">
+  <h1 class="simple-in">Entre em <span class="gradient-text-second">Contacto</span></h1>
+  <p class="simple-in w-150 text-center">Tem dúvidas? Estamos aqui para ajudá-lo a iniciar a sua jornada de aprendizagem de inglês. Entre em contacto connosco hoje!</p>
+</section>
+
+<section class="contact-card services px-80 py-40 w-full flex gap-10">
+  <article class="w-full order-1 flex flex-col gap-5">
+    <div class="simple-in w-full card flex gap-3">
+      <span>
+        <i class="pi pi-phone opacity-90" style="background: var(--about-mission);"></i>
+      </span>
+      <span>
+        <h4 class="opacity-90">Ligue-nos</h4>
+        <p>(+258) 84 767 5145 / 87 970 8167</p>
+      </span>
+    </div>
+    <div class="simple-in w-full card flex gap-3">
+      <span>
+        <i class="pi pi-at opacity-90" style="background: var(--about-passion);"></i>
+      </span>
+      <span>
+        <h4 class="opacity-90">Envie Email</h4>
+        <p>etc.elf@gmail.com</p>
+      </span>
+    </div>
+    <div class=" w-full card flex flex-col gap-3">
+      <div class="w-full flex gap-3">
+        <span>
+          <i class="pi pi-map-marker opacity-90" style="background: var(--about-innovation);"></i>
+        </span>
+        <span>
+          <h4 class="opacity-90">Visite-nos</h4>
+          <p>Matola - Machava Bedene, Próximo à Maternidade</p>
+        </span>
+      </div>
+      <div>
+        <app-card-location class="simple-in"></app-card-location>
+      </div>
+      <div class="w-full flex justify-center items-center">
+        <a
+          class="w-fit maps-link"
+          href="https://www.google.com/maps/place/ENGLISH+TRAINING+CENTRE/@-25.8960808,32.4881879,20.63z/data=!4m9!1m2!10m1!1e1!3m5!1s0x1ee68f001301ae73:0xc27438a7c3a265c9!8m2!3d-25.8960857!4d32.4883504!16s%2Fg%2F11ln_y2gmy?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span class="flex justify-center items-center">
+            <span>Ver no Google Maps</span>
+            <i class="pi pi-map" style="font-size: 1rem;"></i>
+          </span>
+        </a>
+      </div>
+    </div>
+  </article>
+  <article class="w-full order-2">
+    <div class="simple-in card">
+      <h4 class="opacity-90">Envie-nos uma Mensagem</h4>
+      <form
+        class="my-1 w-full flex flex-col justify-center items-center gap-3"
+      >
+        <div class="w-full flex flex-col">
+          <label>Nome Completo</label>
+          <p-iconfield>
+            <p-inputicon class="pi pi-user" />
+            <input type="text" pInputText id="username"  autocomplete="off" placeholder="Seu Nome Completo"/>
+          </p-iconfield>
+        </div>
+
+        <div class="w-full flex flex-col">
+          <label>Número de Telefone</label>
+          <p-iconfield>
+            <p-inputicon class="pi pi-phone" />
+            <p-inputmask mask="(+258) 89 999 9999" placeholder="(+258) 8X XXX XXXX"/>
+          </p-iconfield>
+        </div>
+
+        <div class="w-full flex flex-col">
+          <label>Mensagem</label>
+          <textarea
+            pTextarea
+            id="on_description"
+            rows="5" cols="30"
+            placeholder="Mensagem"
+          ></textarea>
+        </div>
+
+        <button pRipple class="mt-3 w-full flex gap-1 justify-center items-center">
+          <span>Enviar Mensagem</span>
+          <span>
+            <i class="pi pi-send" style="font-size: 0.8rem;"></i>
+          </span>
+        </button>
+      </form>
+    </div>
+  </article>
+</section>

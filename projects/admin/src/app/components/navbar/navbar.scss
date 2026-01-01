@@ -1,0 +1,85 @@
+.switch-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 26px;
+}
+
+.switch-button .switch-outer {
+  width: 56px;
+  height: 100%;
+  padding: 2px;
+  background: #252532;
+  border-radius: 70px;
+  border: 1px solid #32303e;
+  box-shadow: inset 0 2px 4px #16151c, 0 1px 3px #403f4e;
+  box-sizing: border-box;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.switch-button .switch-outer input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  appearance: none;
+}
+
+.switch-button .switch-outer .button {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.switch-button .switch-outer .button-toggle {
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(#3b3a4e, #272733);
+  border-radius: 50%;
+  box-shadow: inset 0 2px 2px #424151, 0 1px 5px #0f0e17;
+  position: relative;
+  left: 0;
+  right: 0;
+  transition: left 0.2s ease-in-out;
+  z-index: 2;
+}
+
+.switch-button
+  .switch-outer
+  input[type="checkbox"]:checked
+  + .button
+  .button-toggle {
+  left: 58%;
+}
+
+.switch-button .switch-outer .button-indicator {
+  width: 12px;
+  height: 12px;
+  border: 2px solid #ef565f;
+  border-radius: 50%;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 5px;
+}
+
+.switch-button
+  .switch-outer
+  input[type="checkbox"]:checked
+  + .button
+  .button-indicator {
+  animation: indicator-xs 0.6s forwards;
+}
+
+@keyframes indicator-xs {
+  30% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+    border-color: #60d480;
+    left: -69%;
+  }
+}

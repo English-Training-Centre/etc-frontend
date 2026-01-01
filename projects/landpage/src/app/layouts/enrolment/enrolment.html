@@ -1,0 +1,194 @@
+<section class="contact-us px-80 py-40 w-full flex flex-col gap-3 justify-center items-center overflow-hidden">
+  <h1 class="text-5xl font-bold animate-fade-in-down">
+    Inscrição de Curso de <span class="gradient-text-second py-2">Inglês</span>
+  </h1>
+  <div class="flex gap-2 justify-center items-center animate-fade-in-up delay-200">
+    <i class="pi pi-sparkles text-2xl text-yellow-500 animate-twinkle"></i>
+    <p class="text-lg">Transforme o seu futuro com o domínio do inglês</p>
+    <i class="pi pi-sparkles text-2xl text-yellow-500 animate-twinkle delay-300"></i>
+  </div>
+  <div class="flex gap-2 justify-center items-center animate-fade-in-up delay-400">
+    <i class="pi pi-file-edit text-xl"></i>
+    <p>Preencha os seus dados abaixo</p>
+  </div>
+</section>
+
+<section class="animate-fade-in-up delay-200 enrolment px-80 py-40 w-full flex justify-center items-center">
+  <form
+    [formGroup]="form"
+    class="my-1 enrolment_card scrollbar_select w-250 p-10 flex flex-col gap-10 justify-center items-center"
+  >
+    <div class="w-full flex flex-col gap-5">
+      <h4 class="opacity-90">Detalhes do Curso</h4>
+      <div class="w-full flex justify-center items-center gap-10">
+        <div class="w-full flex flex-col">
+          <label>Modalidade</label>
+          <p-iconfield>
+            <p-inputicon class="pi pi-sitemap" />
+            <p-select
+              formControlName="modality"
+              inputId="on_modality"
+              [options]="modalityOptions"
+              optionLabel="value"
+              optionValue="id"
+              class="w-full"
+              placeholder="Selecione"
+            />
+          </p-iconfield>
+        </div>
+
+        <div class="w-full flex flex-col">
+          <label>Pacote</label>
+          <p-iconfield>
+            <p-inputicon class="pi pi-bookmark" />
+            <p-select
+              formControlName="package"
+              inputId="on_package"
+              [options]="packageOptions"
+              optionLabel="value"
+              optionValue="id"
+              class="w-full"
+              placeholder="Selecione"
+            />
+          </p-iconfield>
+        </div>
+
+        <div class="w-full flex flex-col">
+          <label>Nível</label>
+          <p-iconfield>
+            <p-inputicon class="pi pi-gauge" />
+            <p-select
+              formControlName="level"
+              inputId="on_level"
+              [options]="levelOptions"
+              optionLabel="value"
+              optionValue="id"
+              class="w-full"
+              placeholder="Selecione"
+            />
+          </p-iconfield>
+        </div>
+
+        <div class="w-full flex flex-col">
+          <label>Horário</label>
+          <p-iconfield>
+            <p-inputicon class="pi pi-clock" />
+            <p-select
+              formControlName="time"
+              inputId="on_time"
+              [options]="timeOptions"
+              optionLabel="value"
+              optionValue="id"
+              class="w-full"
+              placeholder="Selecione"
+            />
+          </p-iconfield>
+        </div>
+      </div>
+    </div>
+
+    <div class="w-full flex flex-col gap-5">
+      <h4 class="opacity-90">Dados Pessoais</h4>
+      <div class="w-full flex flex-col gap-5">
+        <div class="w-full flex justify-center items-center gap-10">
+          <div class="w-full flex flex-col">
+            <label>Nome Completo</label>
+            <p-iconfield>
+              <p-inputicon class="pi pi-user" />
+              <input type="text" pInputText id="on_fullName" autocomplete="off" formControlName="fullName" placeholder="Nome Completo"/>
+            </p-iconfield>
+          </div>
+
+          <div class="w-full flex flex-col">
+            <label>Genêro</label>
+            <p-iconfield>
+              <p-inputicon class="pi pi-mars" />
+              <p-select
+                formControlName="gender"
+                inputId="on_gender"
+                [options]="genderOptions"
+                optionLabel="value"
+                optionValue="id"
+                class="w-full"
+                placeholder="Genêro"
+              />
+            </p-iconfield>
+          </div>
+
+          <div class="w-full flex flex-col">
+            <label>Data de Nascimento</label>
+            <p-datepicker
+              formControlName="dateBirth"
+              dateFormat="dd/mm/yy"
+              inputId="on_dateBirth"
+              showIcon
+              iconDisplay="input"
+              autocomplete="off"
+              class="w-full"
+              placeholder="Data de Nascimento"
+            />
+          </div>
+        </div>
+
+        <div class="w-full flex justify-center items-center gap-10">
+          <div class="w-full flex flex-col">
+            <label>E-mail (Opcional)</label>
+            <p-iconfield>
+              <p-inputicon class="pi pi-at" />
+              <input type="email" pInputText id="on_email" autocomplete="off" formControlName="email" placeholder="E-mail (Opcional)"/>
+            </p-iconfield>
+          </div>
+
+          <div class="w-full flex flex-col">
+            <label>Número de Telefone</label>
+            <p-iconfield>
+              <p-inputicon class="pi pi-phone" />
+               <p-inputmask mask="(+258) 89 999 9999" id="on_phone" formControlName="phone" placeholder="(+258) 8X XXX XXXX"/>
+            </p-iconfield>
+          </div>
+
+          <div class="w-full flex flex-col">
+            <label>Endereço Residencial</label>
+            <p-iconfield>
+              <p-inputicon class="pi pi-map-marker" />
+              <input type="text" pInputText id="on_residencialAddress"  autocomplete="off" formControlName="residencialAddress" placeholder="Endereço Residencial"/>
+            </p-iconfield>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="w-full flex flex-col gap-5">
+      <div class="flex flex-col gap-2 items-start">
+        <div class="flex gap-2 items-center">
+          <h4 class="opacity-90">Encarregado de Educação</h4>
+          <small>(Opcional)</small>
+        </div>
+        <p> Se você tem menos de 18 anos, preencha os dados do seu pai, mãe ou responsável. Se tem 18 anos ou mais, pode deixar vazio.</p>
+      </div>
+      <div class="w-full flex gap-10">
+        <div class="w-full flex flex-col">
+          <label>Nome Completo</label>
+          <p-iconfield>
+            <p-inputicon class="pi pi-user" />
+            <input type="text" pInputText id="username" autocomplete="off" formControlName="fullName" placeholder="Nome Completo"/>
+          </p-iconfield>
+        </div>
+
+        <div class="w-full flex flex-col">
+          <label>Número de Telefone</label>
+          <p-iconfield>
+            <p-inputicon class="pi pi-phone" />
+            <p-inputmask mask="(+258) 89 999 9999" formControlName="phone" placeholder="(+258) 8X XXX XXXX"/>
+          </p-iconfield>
+        </div>
+      </div>
+    </div>
+
+    <span class="w-200 text-center mb-3">Ao clicar no botão "Confirmar Inscrição" abaixo, você está a concordar com os nossos <a class="text-red-500">Termos e Condições</a> e a nossa <a class="text-red-500">Política de Privacidade</a>.</span>
+
+    <button pRipple class="btn_enrol w-full flex gap-1 justify-center items-center">
+      Confirmar Inscrição
+    </button>
+  </form>
+</section>

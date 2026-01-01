@@ -1,0 +1,119 @@
+<section class="w-full flex flex-col gap-10 items-center">
+  <article class="w-300 flex gap-3">
+    <div class="w-full default_card">
+      <h2>
+        Total de Alunos
+      </h2>
+      <h3 #countUpQty_active>0</h3>
+    </div>
+    <div class="w-full default_card">
+      <h2>
+        Online
+      </h2>
+      <h3 #countUpQty_totalActiveQty>0</h3>
+    </div>
+    <div class="w-full default_card">
+      <h2>
+        Presencial
+      </h2>
+      <h3 #countUpQty_inactive>0</h3>
+    </div>
+  </article>
+  <article class="w-full ag_grid">
+    <div class="w-full mb-1 mt-3 grid gap-2 min-sm:flex min-sm:justify-between min-sm:items-center">
+      <p-floatlabel variant="on" class="w-full xl:w-1/3 lg:w-1/3 min-sm:w-1/2 order-1">
+        <p-iconfield>
+          <p-inputicon class="pi pi-search" />
+          <input type="text" pInputText id="lbl_search" [(ngModel)]="searchInput" autocomplete="off" (input)="onSearch()" />
+        </p-iconfield>
+          <label for="lbl_search">
+            Search
+          </label>
+      </p-floatlabel>
+
+      <div class="w-fit flex gap-10 order-2">
+        <p-selectbutton [options]="modalityOptions" [(ngModel)]="modalityValue" optionLabel="label" optionValue="value"  />
+        <p-selectbutton [options]="statusOptions" [(ngModel)]="statusValue" optionLabel="label" optionValue="value"  />
+      </div>
+    </div>
+
+    @if (tableLoading)
+    {
+      <div class="loader">
+        <span class="card_loader"></span>
+      </div>
+    }
+    @else
+    {
+      <ag-grid-angular
+        class="ag_theme_alpine w-full"
+        [rowData]="pageData"
+        [columnDefs]="columnDefs"
+        [animateRows]="true"
+        [domLayout]="'autoHeight'"
+        [pagination]="true"
+        [paginationPageSize]="pageSize"
+        [suppressPaginationPanel]="true"
+        [headerHeight]="headerHeight"
+        [rowHeight]="rowHeight"
+        [rowSelection]="rowSelection"
+        [gridOptions]="gridOptions"
+        (gridReady)="onGridReady($event)"
+      >
+      </ag-grid-angular>
+
+      <p>
+        A mostrar {{ startIndex + 1 }} a {{ endIndex }} de {{ showTotalPag }} registos
+      </p>
+
+      <div class="pagination">
+        <button (click)="goToStart()"
+          [disabled]="currentPage === 1"
+          [class.disabled]="currentPage === 1"
+          class="btn_only_icon"
+        >
+          <i class="pi pi-angle-double-left"></i>
+        </button>
+        <button (click)="gotToPrevious()"
+          [disabled]="currentPage === 1"
+          [class.disabled]="currentPage === 1"
+          class="btn_only_icon"
+        >
+          <i class="pi pi-angle-left"></i>
+        </button>
+
+        <div class="ag_number">
+          @for (page of totalPagesArray; track $index) {
+            @if (isNumber(page)) {
+              <button
+                (click)="goToPage(page)"
+                [class.active]="currentPage === page"
+                class="btn_only_icon"
+              >
+                {{ page }}
+              </button>
+            }
+            @if (!isNumber(page)) {
+              <span class="cursor-default text-gray-400 mx-1">.&nbsp;.&nbsp;.</span>
+            }
+          }
+        </div>
+
+        <button (click)="goToNext()"
+          [disabled]="currentPage === totalPages"
+          [class.disabled]="currentPage === totalPages"
+          class="btn_only_icon"
+        >
+          <i class="pi pi-angle-right"></i>
+        </button>
+        <button (click)="goToEnd()"
+          [disabled]="currentPage === totalPages"
+          [class.disabled]="currentPage === totalPages"
+          class="btn_only_icon"
+        >
+          <i class="pi pi-angle-double-right"></i>
+        </button>
+      </div>
+    }
+  </article>
+</section>

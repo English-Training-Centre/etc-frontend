@@ -1,0 +1,610 @@
+<section id="home" class="home px-80 py-40 w-full h-screen flex justify-between items-center gap-10">
+  <article class="w-full mt-10 flex flex-col gap-[2.2rem]">
+    <div class="animate-in badge w-fit flex gap-3 justify-center items-center rounded-full">
+      <i class="pi pi-sparkles text-2xl text-yellow-500 animate-twinkle"></i>
+      <span class="text-sm">O Futuro da humanidade começa com a educação</span>
+    </div>
+
+    <span class="title w-140 flex flex-col">
+      <span class="animate-in">Inglês para Estudar,</span>
+      <span class="animate-in">
+        Trabalhar e Comunicar
+      </span>
+      <span class="animate-in gradient-text-second">Melhor</span>
+    </span>
+
+    <div class="animate-in info_enroll w-fit flex gap-3 items-center justify-center">
+      <i class="pi pi-check-circle"></i>
+      <span class="flex flex-col justify-center items-center">
+        <span class="font-bold">INSCRIÇÕES ABERTAS</span>
+        <span class="font-bold">Apenas 300 MT</span>
+      </span>
+    </div>
+
+    <div class="w-fit flex gap-3 justify-start items-center">
+      <button pRipple [routerLink]="['/enrolment']"
+        class="animate-in btn_enroll flex gap-3 justify-center items-center">
+        <p>Inscrever-se Agora</p>
+        <span>
+          <i class="pi pi-arrow-right"></i>
+        </span>
+      </button>
+      <button pRipple class="animate-in btn_learn-more"
+        (click)="scrollTo('about')"
+      >
+        Saber Mais
+      </button>
+    </div>
+
+    <div class="stats flex gap-20">
+      <div class="animate-in flex flex-col justify-center items-center">
+        <div class="flex gap-2 items-center">
+          <span><i class="pi pi-users text-blue-400"></i></span>
+          <span>2K+</span>
+        </div>
+        <small>Estudantes</small>
+      </div>
+
+      <div class="animate-in flex flex-col justify-center items-center">
+        <div class="flex gap-2 items-center">
+          <span><i class="pi pi-chart-line text-green-400"></i></span>
+          <span>95%</span>
+        </div>
+        <small>Taxa de Sucesso</small>
+      </div>
+
+      <div class="animate-in flex flex-col justify-center items-center">
+        <div class="flex gap-2 items-center">
+          <span><i class="pi pi-map text-orange-400"></i></span>
+          <span>5</span>
+        </div>
+        <small>Níveis Disponíveis</small>
+      </div>
+    </div>
+  </article>
+  <article>
+    <div class="animate-in relative bottom-8">
+      <img
+        src="{{ homeUrl() }}"
+        alt="Students learning English"
+        class="w-full h-[80dvh] object-cover"
+      />
+
+      <div class="animate-in bounce-slight certified_card">
+        <div class="flex gap-3 items-center justify-center">
+          <i class="pi pi-sparkles rounded-full"></i>
+          <div class="flex flex-col justify-center text-center">
+            <span>Excelência Garantida</span>
+            <span>Certificado de Conclusão</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+</section>
+
+<!-- About -->
+<section id="about" class="about px-80 py-40 w-full flex flex-col gap-20 justify-center items-center">
+  <article class="w-full flex flex-col gap-3 justify-center items-center">
+    <div class="animate-in badge w-fit flex gap-3 justify-center items-center rounded-full">
+      <span>Sobre Nós</span>
+    </div>
+    <h1 class="animate-in">O Futuro da <span class="gradient-text">Humanidade</span></h1>
+    <span class="text-center">
+      <p class="animate-in w-150">No English Training Centre, não estamos apenas a ensinar uma língua, estamos a construir pontes para o futuro, criar oportunidades e transformar vidas em Moçambique.</p>
+    </span>
+  </article>
+  <article class="w-full flex gap-20">
+    <img
+      src="https://images.unsplash.com/photo-1758270705172-07b53627dfcb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkaXZlcnNlJTIwZ3JvdXAlMjBzdHVkeWluZ3xlbnwxfHx8fDE3NjU3MTg5Mzh8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+      alt="Diverse group studying"
+      class="animate-in scale-in rounded-3xl shadow-2xl w-1/2 h-[500px] object-cover"
+    />
+    <div class="w-full flex flex-col gap-5 justify-center">
+      <h2 class="animate-in">Perfeição dos Nossos Tempos</h2>
+      <p class="animate-in">
+        Fundado no princípio de que a educação é a chave para o avanço humano, dedicamo-nos a criar a experiência de aprendizagem de inglês mais completa, inovadora e eficaz.
+      </p>
+      <p class="animate-in">
+        As nossas instalações de última geração, instrutores de classe mundial e metodologias de ensino revolucionárias garantem que cada estudante, desde crianças curiosas a profissionais ambiciosos, receba atenção personalizada e alcance resultados notáveis.
+      </p>
+      <span class="animate-in scale-in icon-check flex gap-3 items-center">
+        <i class="pi pi-check-circle"></i>
+        <p class="animate-in">Ensino focado em conversação, leitura e compreensão</p>
+      </span>
+      <span class="animate-in scale-in icon-check flex gap-3 items-center">
+        <i class="pi pi-check-circle"></i>
+        <p class="animate-in">Certificado de conclusão emitido pelo próprio centro, comprovando a formação em língua inglesa</p>
+      </span>
+      <span class="animate-in scale-in icon-check flex gap-3 items-center">
+        <i class="pi pi-check-circle"></i>
+        <p class="animate-in">Histórico de estudantes que desenvolveram competências reais de comunicação em inglês</p>
+      </span>
+    </div>
+  </article>
+  <article class="flex gap-10">
+    <div class="animate-in scale-in w-full card flex flex-col gap-3">
+      <span>
+        <i class="pi pi-bullseye" style="background: var(--about-mission);"></i>
+      </span>
+      <h4>Nosso Compromisso</h4>
+      <p class="animate-in">
+        Ajudar estudantes de todas as idades a aprender inglês de forma prática e acessível, preparando-os para comunicar com confiança no estudo, no trabalho e no dia a dia.
+      </p>
+    </div>
+    <div class="animate-in scale-in w-full card flex flex-col gap-3">
+      <span>
+        <i class="pi pi-heart" style="background: var(--about-passion);"></i>
+      </span>
+      <h4>Nossa Paixão</h4>
+      <p class="animate-in">
+        Temos paixão por ensinar e acompanhar o progresso de cada estudante, criando um ambiente simples, acolhedor e motivador.
+      </p>
+    </div>
+    <div class="animate-in scale-in w-full card flex flex-col gap-3">
+      <span>
+        <i class="pi pi-lightbulb" style="background: var(--about-innovation);"></i>
+      </span>
+      <h4>Nosso Método</h4>
+      <p class="animate-in">
+        Aplicamos métodos de ensino claros e eficazes, com foco na prática da língua inglesa e no avanço gradual de cada estudante.
+      </p>
+    </div>
+    <div class="animate-in scale-in w-full card flex flex-col gap-3">
+      <span>
+        <i class="pi pi-sparkles" style="background: var(--about-excellence);"></i>
+      </span>
+      <h4>Nossa Forma de Ensinar</h4>
+      <p class="animate-in">
+        Trabalhamos com seriedade e dedicação para oferecer um ensino consistente, ajudando os nossos estudantes a alcançar resultados reais.
+      </p>
+    </div>
+  </article>
+</section>
+
+<!-- Our Services -->
+<section id="services" class="services px-80 py-40 w-full flex flex-col gap-20 justify-center items-center">
+  <article class="w-full flex flex-col gap-3 justify-center items-center">
+    <div class="animate-in badge w-fit flex gap-3 justify-center items-center rounded-full">
+      <span>Nossos Serviços</span>
+    </div>
+    <h1 class="animate-in">Programas Desenhados para <span class="gradient-text">Todos</span></h1>
+    <p class="animate-in w-150 text-center">Para crianças curiosas e profissionais determinados, temos o curso certo para desenvolver o seu inglês ao ritmo que precisa.</p>
+  </article>
+  <article class="w-300 flex gap-5">
+    <div
+      class="animate-in scale-in w-full rounded-2xl p-8 text-center text-white
+      bg-gradient-to-br from-blue-600 via-blue-500 to-cyan-600
+      shadow-xl relative overflow-hidden"
+    >
+      <div class="absolute -top-16 -right-16 w-40 h-40 rounded-full bg-white/10"></div>
+
+      <div
+        class="mx-auto mb-4 flex items-center justify-center"
+      >
+        <i class="pi pi-clock" style="font-size: 2.5rem;"></i>
+      </div>
+
+      <p class="animate-in text-sm opacity-90">
+        Horário Flexível
+      </p>
+
+      <p class="animate-in mt-2 text-2xl font-bold">
+        07h às 20h
+      </p>
+
+      <small class="animate-in opacity-80">
+        Manhã, Tarde e Noite
+      </small>
+    </div>
+    <div
+      class="animate-in scale-in w-full rounded-2xl p-8 text-center text-white
+      bg-gradient-to-br from-red-600 to-red-900
+      shadow-xl relative overflow-hidden"
+    >
+      <div class="absolute -top-16 -right-16 w-40 h-40 rounded-full bg-white/10"></div>
+
+      <div
+        class="mx-auto mb-4 flex items-center justify-center"
+      >
+        <i class="pi pi-calendar" style="font-size: 2.5rem;"></i>
+      </div>
+
+      <p class="animate-in text-sm opacity-90">
+        Dias de Funcionamento
+      </p>
+
+      <p class="animate-in mt-2 text-2xl font-bold">
+        Segunda a Quinta
+      </p>
+
+      <small class="animate-in opacity-80">
+        4 Dias por Semana
+      </small>
+    </div>
+    <div
+      class="animate-in scale-in w-full rounded-2xl p-8 text-center text-white
+      bg-gradient-to-br from-[#7c1fd3] via-[#a21caf] to-[#e11d8f]
+      shadow-xl relative overflow-hidden"
+    >
+      <div class="absolute -top-16 -right-16 w-40 h-40 rounded-full bg-white/10"></div>
+
+      <div
+        class="mx-auto mb-4 flex items-center justify-center"
+      >
+        <i class="pi pi-stopwatch" style="font-size: 2.5rem;"></i>
+      </div>
+
+      <p class="animate-in text-sm opacity-90">
+        Duração das Aulas
+      </p>
+
+      <p class="animate-in mt-2 text-3xl font-bold">
+        45min / dia
+      </p>
+
+      <small class="animate-in opacity-80">
+        Aprendizagem Intensiva
+      </small>
+    </div>
+  </article>
+  <article class="w-full grid grid-cols-3 gap-10">
+    <div id="speaking" class="animate-in scale-in default_card w-full rounded-3xl overflow-hidden shadow-2xl">
+      <!-- Image / Gradient Header -->
+      <div class="relative h-56">
+        <img
+          src="https://images.unsplash.com/photo-1758270705172-07b53627dfcb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkaXZlcnNlJTIwZ3JvdXAlMjBzdHVkeWluZ3xlbnwxfHx8fDE3NjU3MTg5Mzh8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+          alt="Programa Infantil"
+          class="animate-in scale-in absolute inset-0 w-full h-full object-cover"
+        />
+        <div class="absolute inset-0 bg-gradient-to-tr from-orange-600/90 via-pink-500/70 to-transparent"></div>
+
+        <!-- Icon -->
+        <div class="absolute top-4 left-4 w-10 h-10 rounded-xl bg-white flex items-center justify-center shadow opacity-90">
+          <i class="pi pi-microphone text-fuchsia-600" style="font-size: 1.2rem;"></i>
+        </div>
+
+        <!-- Age Badge -->
+        <div class="absolute bottom-4 left-4 px-4 py-1 rounded-full bg-white/90 text-sm font-semibold text-slate-900 opacity-90">
+          Conversação com Confiança
+        </div>
+      </div>
+      <!-- Content -->
+      <div class="p-6 space-y-4">
+        <div>
+          <h3 class="text-2xl font-extrabold opacity-90">Speaking</h3>
+          <p class="mt-2 text-sm leading-relaxed opacity-80">
+            Aprenda a comunicar em inglês com mais segurança através de actividades práticas, conversas orientadas e exercícios do dia a dia.
+          </p>
+        </div>
+
+        <!-- Features -->
+        <ul class="space-y-2 text-sm opacity-80">
+          <li class="flex items-center gap-2">
+            <i class="pi pi-check-circle text-fuchsia-500"></i>
+            Conversas e Debates em Grupo
+          </li>
+          <li class="flex items-center gap-2">
+            <i class="pi pi-check-circle text-fuchsia-500"></i>
+            Prática de Pronúncia Correcta
+          </li>
+          <li class="flex items-center gap-2">
+            <i class="pi pi-check-circle text-fuchsia-500"></i>
+            Simulações de Situações do Dia a Dia
+          </li>
+          <li class="flex items-center gap-2">
+            <i class="pi pi-check-circle text-fuchsia-500"></i>
+            Acompanhamento e Feedback do Professor
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="listening" class="animate-in scale-in default_card w-full rounded-3xl overflow-hidden shadow-2xl">
+      <!-- Image / Gradient Header -->
+      <div class="relative h-56">
+        <img
+          src="https://images.unsplash.com/photo-1758270705172-07b53627dfcb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkaXZlcnNlJTIwZ3JvdXAlMjBzdHVkeWluZ3xlbnwxfHx8fDE3NjU3MTg5Mzh8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+          alt="Programa Infantil"
+          class="absolute inset-0 w-full h-full object-cover"
+        />
+        <div class="absolute inset-0 bg-gradient-to-tr from-emerald-600/85 via-cyan-500/75 to-transparent"></div>
+
+        <!-- Icon -->
+        <div class="absolute top-4 left-4 w-10 h-10 rounded-xl bg-white flex items-center justify-center shadow opacity-90">
+          <i class="pi pi-headphones text-fuchsia-600" style="font-size: 1.2rem;"></i>
+        </div>
+
+        <!-- Age Badge -->
+        <div class="absolute bottom-4 left-4 px-4 py-1 rounded-full bg-white/90 text-sm font-semibold text-slate-900 opacity-90">
+          Compreensão Auditiva
+        </div>
+      </div>
+      <!-- Content -->
+      <div class="p-6 space-y-4">
+        <div>
+          <h3 class="text-2xl font-extrabold opacity-90">Listening</h3>
+          <p class="mt-2 text-sm leading-relaxed opacity-80">
+            Melhore a compreensão auditiva com exercícios práticos, podcasts autênticos, vídeos e conversas do dia-a-dia.
+          </p>
+        </div>
+
+        <!-- Features -->
+        <ul class="space-y-2 text-sm opacity-80">
+          <li class="flex items-center gap-2">
+            <i class="pi pi-check-circle text-fuchsia-500"></i>
+            Podcasts e Vídeos Autênticos
+          </li>
+          <li class="flex items-center gap-2">
+            <i class="pi pi-check-circle text-fuchsia-500"></i>
+            Técnicas de Compreensão Rápida
+          </li>
+          <li class="flex items-center gap-2">
+            <i class="pi pi-check-circle text-fuchsia-500"></i>
+            Sotaques Internacionais (UK/US)
+          </li>
+          <li class="flex items-center gap-2">
+            <i class="pi pi-check-circle text-fuchsia-500"></i>
+            Exercícios Interativos
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="writing" class="animate-in scale-in default_card w-full rounded-3xl overflow-hidden shadow-2xl">
+      <!-- Image / Gradient Header -->
+      <div class="relative h-56">
+        <img
+          src="https://images.unsplash.com/photo-1758270705172-07b53627dfcb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkaXZlcnNlJTIwZ3JvdXAlMjBzdHVkeWluZ3xlbnwxfHx8fDE3NjU3MTg5Mzh8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+          alt="Programa Infantil"
+          class="absolute inset-0 w-full h-full object-cover"
+        />
+        <div class="absolute inset-0 bg-gradient-to-tr from-red-700/90 via-orange-600/70 to-transparent"></div>
+
+        <!-- Icon -->
+        <div class="absolute top-4 left-4 w-10 h-10 rounded-xl bg-white flex items-center justify-center shadow opacity-90">
+          <i class="pi pi-file-edit text-fuchsia-600" style="font-size: 1.2rem;"></i>
+        </div>
+
+        <!-- Age Badge -->
+        <div class="absolute bottom-4 left-4 px-4 py-1 rounded-full bg-white/90 text-sm font-semibold text-slate-900 opacity-90">
+          Escrita Profissional
+        </div>
+      </div>
+      <!-- Content -->
+      <div class="p-6 space-y-4">
+        <div>
+          <h3 class="text-2xl font-extrabold opacity-90">Writing</h3>
+          <p class="mt-2 text-sm leading-relaxed opacity-80">
+            Aprenda a escrever emails profissionais, ensaios académicos, relatórios e textos criativos com estrutura perfeita.
+          </p>
+        </div>
+
+        <!-- Features -->
+        <ul class="space-y-2 text-sm opacity-80">
+          <li class="flex items-center gap-2">
+            <i class="pi pi-check-circle text-fuchsia-500"></i>
+            Redação de Emails Corporativos
+          </li>
+          <li class="flex items-center gap-2">
+            <i class="pi pi-check-circle text-fuchsia-500"></i>
+            Ensaios e Artigos Académicos
+          </li>
+          <li class="flex items-center gap-2">
+            <i class="pi pi-check-circle text-fuchsia-500"></i>
+            Escrita Criativa e Storytelling
+          </li>
+          <li class="flex items-center gap-2">
+            <i class="pi pi-check-circle text-fuchsia-500"></i>
+            Correção e Revisão Detalhada
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="grammar" class="animate-in scale-in default_card w-full rounded-3xl overflow-hidden shadow-2xl">
+      <!-- Image / Gradient Header -->
+      <div class="relative h-56">
+        <img
+          src="https://images.unsplash.com/photo-1758270705172-07b53627dfcb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkaXZlcnNlJTIwZ3JvdXAlMjBzdHVkeWluZ3xlbnwxfHx8fDE3NjU3MTg5Mzh8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+          alt="Programa Infantil"
+          class="absolute inset-0 w-full h-full object-cover"
+        />
+        <div class="absolute inset-0 bg-gradient-to-tr from-violet-700/90 via-purple-500/70 to-transparent"></div>
+
+        <!-- Icon -->
+        <div class="absolute top-4 left-4 w-10 h-10 rounded-xl bg-white flex items-center justify-center shadow opacity-90">
+          <i class="pi pi-book text-fuchsia-600" style="font-size: 1.2rem;"></i>
+        </div>
+
+        <!-- Age Badge -->
+        <div class="absolute bottom-4 left-4 px-4 py-1 rounded-full bg-white/90 text-sm font-semibold text-slate-900 opacity-90">
+          Gramática Sólida
+        </div>
+      </div>
+      <!-- Content -->
+      <div class="p-6 space-y-4">
+        <div>
+          <h3 class="text-2xl font-extrabold opacity-90">Grammar</h3>
+          <p class="mt-2 text-sm leading-relaxed opacity-80">
+            Domine as regras gramaticais do inglês desde o básico até avançado com metodologia única e exercícios práticos.
+          </p>
+        </div>
+
+        <!-- Features -->
+        <ul class="space-y-2 text-sm opacity-80">
+          <li class="flex items-center gap-2">
+            <i class="pi pi-check-circle text-fuchsia-500"></i>
+            Tempos Verbais Completos
+          </li>
+          <li class="flex items-center gap-2">
+            <i class="pi pi-check-circle text-fuchsia-500"></i>
+            Estruturas Complexas
+          </li>
+          <li class="flex items-center gap-2">
+            <i class="pi pi-check-circle text-fuchsia-500"></i>
+            Exercícios Práticos Diários
+          </li>
+          <li class="flex items-center gap-2">
+            <i class="pi pi-check-circle text-fuchsia-500"></i>
+            Testes de Avaliação Contínua
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="online" class="animate-in scale-in default_card w-full rounded-3xl overflow-hidden shadow-2xl">
+      <!-- Image / Gradient Header -->
+      <div class="relative h-56">
+        <img
+          src="https://images.unsplash.com/photo-1758270705172-07b53627dfcb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkaXZlcnNlJTIwZ3JvdXAlMjBzdHVkeWluZ3xlbnwxfHx8fDE3NjU3MTg5Mzh8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+          alt="Programa Infantil"
+          class="absolute inset-0 w-full h-full object-cover"
+        />
+        <div class="absolute inset-0 bg-gradient-to-tr from-teal-600/85 via-emerald-500/65 to-transparent"></div>
+
+        <!-- Icon -->
+        <div class="absolute top-4 left-4 w-10 h-10 rounded-xl bg-white flex items-center justify-center shadow opacity-90">
+          <i class="pi pi-desktop text-fuchsia-600" style="font-size: 1.2rem;"></i>
+        </div>
+
+        <!-- Age Badge -->
+        <div class="absolute bottom-4 left-4 px-4 py-1 rounded-full bg-white/90 text-sm font-semibold text-slate-900 opacity-90">
+          Flexibilidade Total
+        </div>
+      </div>
+      <!-- Content -->
+      <div class="p-6 space-y-4">
+        <div>
+          <h3 class="text-2xl font-extrabold opacity-90">Aulas Online</h3>
+          <p class="mt-2 text-sm leading-relaxed opacity-80">
+            Aprenda de qualquer lugar com plataforma interativa 24/7, aulas ao vivo gravadas e suporte em tempo real.
+          </p>
+        </div>
+
+        <!-- Features -->
+        <ul class="space-y-2 text-sm opacity-80">
+          <li class="flex items-center gap-2">
+            <i class="pi pi-check-circle text-fuchsia-500"></i>
+            Acesso à Plataforma 24/7
+          </li>
+          <li class="flex items-center gap-2">
+            <i class="pi pi-check-circle text-fuchsia-500"></i>
+            Aulas Gravadas Disponíveis
+          </li>
+          <li class="flex items-center gap-2">
+            <i class="pi pi-check-circle text-fuchsia-500"></i>
+            Chat e Suporte em Tempo Real
+          </li>
+          <li class="flex items-center gap-2">
+            <i class="pi pi-check-circle text-fuchsia-500"></i>
+            Recursos Digitais Exclusivos
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="inPerson" class="animate-in scale-in default_card w-full rounded-3xl overflow-hidden shadow-2xl">
+      <!-- Image / Gradient Header -->
+      <div class="relative h-56">
+        <img
+          src="https://images.unsplash.com/photo-1758270705172-07b53627dfcb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkaXZlcnNlJTIwZ3JvdXAlMjBzdHVkeWluZ3xlbnwxfHx8fDE3NjU3MTg5Mzh8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+          alt="Programa Infantil"
+          class="absolute inset-0 w-full h-full object-cover"
+        />
+        <div class="absolute inset-0 bg-gradient-to-tr from-indigo-700/90 via-blue-600/70  to-transparent"></div>
+
+        <!-- Icon -->
+        <div class="absolute top-4 left-4 w-10 h-10 rounded-xl bg-white flex items-center justify-center shadow opacity-90">
+          <i class="pi pi-map-marker text-fuchsia-600" style="font-size: 1.2rem;"></i>
+        </div>
+
+        <!-- Age Badge -->
+        <div class="absolute bottom-4 left-4 px-4 py-1 rounded-full bg-white/90 text-sm font-semibold text-slate-900 opacity-90">
+          Experiência Imersiva
+        </div>
+      </div>
+      <!-- Content -->
+      <div class="p-6 space-y-4">
+        <div>
+          <h3 class="text-2xl font-extrabold opacity-90">Aulas Presenciais</h3>
+          <p class="mt-2 text-sm leading-relaxed opacity-80">
+            Experimente aprendizagem imersiva nas nossas instalações modernas com professores experientes e turmas reduzidas.
+          </p>
+        </div>
+
+        <!-- Features -->
+        <ul class="space-y-2 text-sm opacity-80">
+          <li class="flex items-center gap-2">
+            <i class="pi pi-check-circle text-fuchsia-500"></i>
+            Turmas de No Máximo 12 Alunos
+          </li>
+          <li class="flex items-center gap-2">
+            <i class="pi pi-check-circle text-fuchsia-500"></i>
+            Materias Físicos Incluídos
+          </li>
+          <li class="flex items-center gap-2">
+            <i class="pi pi-check-circle text-fuchsia-500"></i>
+            Laboratório de Línguas Moderno
+          </li>
+          <li class="flex items-center gap-2">
+            <i class="pi pi-check-circle text-fuchsia-500"></i>
+            Networking com Outros Alunos
+          </li>
+        </ul>
+      </div>
+    </div>
+  </article>
+  <article>
+    <button pRipple
+      [routerLink]="['/enrolment']"
+      class="animate-in btn_enroll flex gap-3 justify-center items-center"
+    >
+      <p>Inscrever-se Agora</p>
+      <span>
+        <i class="pi pi-arrow-right"></i>
+      </span>
+    </button>
+  </article>
+</section>
+
+<!-- Latest News -->
+<section id="latest-new" class="latest-new px-80 py-40 w-full flex flex-col gap-20 justify-center items-center">
+  <article class="w-full flex flex-col gap-3 justify-center items-center">
+    <div class="animate-in badge w-fit flex gap-3 justify-center items-center rounded-full">
+      <span>Últimas Notícias</span>
+    </div>
+    <h1 class="animate-in">
+      Mantenha-se <span class="gradient-text">Informado</span>
+    </h1>
+    <p class="animate-in w-150 text-center">Descubra as últimas atualizações, histórias de sucesso e eventos emocionantes no English Training Centre.</p>
+  </article>
+  <article class="w-full grid grid-cols-3 gap-10">
+    @for (n of [1,2,3,4,5,6]; track n) {
+      <app-card-latest-news class="animate-in scale-in"></app-card-latest-news>
+    }
+  </article>
+  <button pRipple
+    [routerLink]="['/news']"
+    class="animate-in btn_learn-more flex gap-3 justify-center items-center"
+  >
+    <p>Ver todas</p>
+    <span>
+      <i class="pi pi-arrow-right"></i>
+    </span>
+  </button>
+</section>
+
+<!-- contact us -->
+<section id="contact-us" class="home-contact-us px-80 py-40 w-full flex flex-col gap-3 justify-center items-center">
+  <h1 class="animate-in text-white">Entre em <span class="gradient-text-second">Contacto</span></h1>
+  <p class="animate-in w-150 text-center text-white">Tem dúvidas? Estamos aqui para ajudá-lo a iniciar a sua jornada de aprendizagem de inglês. Entre em contacto connosco hoje!</p>
+  <button pRipple
+    [routerLink]="['/contact']"
+    class="animate-in btn_learn-more mt-3 flex gap-3 justify-center items-center">
+    <p class="text-white">Contacte-Nos</p>
+    <span>
+      <i class="pi pi-arrow-right text-white"></i>
+    </span>
+  </button>
+</section>

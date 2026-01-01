@@ -1,0 +1,162 @@
+<section class="mb-20 w-full flex items-center justify-between">
+  <label>Gerir transferências entre contas e verificar saldos disponíveis</label>
+  <div class="default_btn flex gap-2">
+    <button pRipple
+      class="flex gap-4 justify-center items-center"
+    >
+      <i class="pi pi-plus" style="font-size: 0.7rem"></i>
+      <span>Nova Transferência</span>
+    </button>
+  </div>
+</section>
+<section class="w-full flex flex-col gap-5 items-center">
+  <article class="w-full flex gap-2 items-center justify-between">
+    <div>
+      <p-floatlabel variant="on">
+        <p-datepicker
+          [(ngModel)]="dateValue"
+          dateFormat="dd/mm/yy"
+          inputId="on_label" showIcon iconDisplay="input"
+          class="w-60"
+          />
+          <label for="on_label">Por Período</label>
+      </p-floatlabel>
+    </div>
+    <div class="default_btn flex gap-2">
+      <button pRipple
+      >
+        Ontem
+      </button>
+      <button pRipple
+      >
+        Hoje
+      </button>
+    </div>
+  </article>
+  <article class="w-full flex gap-3">
+    <div class="w-full default_card">
+      <h2>
+        Saldo Total Disponível
+      </h2>
+      <h3 #countUpQty_active>0</h3>
+      <p>Todas as contas</p>
+    </div>
+    <div class="w-full default_card">
+      <h2>
+        Saldo em Bancos
+      </h2>
+      <h3 #countUpQty_active>0</h3>
+      <p>2 contas bancárias</p>
+    </div>
+    <div class="w-full default_card">
+      <h2>
+        Saldo em Caixas
+      </h2>
+      <h3 #countUpQty_totalActiveQty>0</h3>
+      <p>3 caixas internas</p>
+    </div>
+  </article>
+<div class="w-full flex gap-5">
+  <!-- Conta Corrente -->
+  <div class="account-card blue">
+    <div class="card-header">
+      <span class="badge">Conta Bancária</span>
+      <div class="icon-box">🏦</div>
+    </div>
+
+    <h3>Conta Corrente Principal</h3>
+    <p class="sub">BCI · Banco Comercial e de Investimentos</p>
+    <p class="sub">Nº 0001234567890</p>
+
+    <div class="divider"></div>
+
+    <p class="label">Saldo Disponível</p>
+    <p class="amount">485 000,00 MT</p>
+  </div>
+
+  <!-- Conta Poupança -->
+  <div class="account-card green">
+    <div class="card-header">
+      <span class="badge">Conta Bancária</span>
+      <div class="icon-box">🏦</div>
+    </div>
+
+    <h3>Conta Poupança</h3>
+    <p class="sub">Millennium BIM</p>
+    <p class="sub">Nº 1234567890123</p>
+
+    <div class="divider"></div>
+
+    <p class="label">Saldo Disponível</p>
+    <p class="amount">250 000,00 MT</p>
+  </div>
+
+  <!-- Caixa Geral -->
+  <div class="account-card pink">
+    <div class="card-header">
+      <span class="badge">Caixa Interna</span>
+      <div class="icon-box">💼</div>
+    </div>
+
+    <h3>Caixa Geral</h3>
+
+    <div class="divider"></div>
+
+    <p class="label">Saldo Disponível</p>
+    <p class="amount">45 000,00 MT</p>
+  </div>
+
+  <!-- Caixa Secretaria -->
+  <div class="account-card orange">
+    <div class="card-header">
+      <span class="badge">Caixa Interna</span>
+      <div class="icon-box">💼</div>
+    </div>
+
+    <h3>Caixa Secretaria</h3>
+
+    <div class="divider"></div>
+
+    <p class="label">Saldo Disponível</p>
+    <p class="amount">12 000,00 MT</p>
+  </div>
+</div>
+  <article class="w-full ag_grid">
+    <h1>Histórico de Transferências</h1>
+    <div class="w-full mb-1 mt-3 grid gap-2 min-sm:flex min-sm:justify-between min-sm:items-center">
+      <p-floatlabel variant="on" class="w-full xl:w-1/3 lg:w-1/3 min-sm:w-1/2 order-1">
+        <p-iconfield>
+          <p-inputicon class="pi pi-search" />
+          <input type="text" pInputText id="lbl_search" [(ngModel)]="searchInput" autocomplete="off" (input)="onSearch()" />
+        </p-iconfield>
+          <label for="lbl_search">
+            Search
+          </label>
+      </p-floatlabel>
+    </div>
+
+    @if (tableLoading)
+    {
+      <div class="loader">
+        <span class="card_loader"></span>
+      </div>
+    }
+    @else
+    {
+      <ag-grid-angular
+        class="ag_theme_alpine w-full"
+        [rowData]="rowData"
+        [columnDefs]="columnDefs"
+        [animateRows]="true"
+        [domLayout]="'autoHeight'"
+        [pagination]="false"
+        [headerHeight]="headerHeight"
+        [rowHeight]="rowHeight"
+        [rowSelection]="rowSelection"
+        [gridOptions]="gridOptions"
+        (gridReady)="onGridReady($event)"
+      >
+      </ag-grid-angular>
+    }
+  </article>
+</section>

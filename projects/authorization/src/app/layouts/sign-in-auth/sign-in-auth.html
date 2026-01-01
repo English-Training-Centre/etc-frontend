@@ -1,0 +1,77 @@
+<section  animate.enter="enter-animation"
+  class="w-full flex justify-center items-top sm:mt-[5%]!"
+  >
+  <form class="login_card w-115 px-10 pt-7 pb-10 max-sm:w-full max-sm:shadow-none! max-sm:px-[10%]!"
+  [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="mb-3 grid gap-8">
+      <h2>
+        Bem-vindo de volta!
+      </h2>
+      <p class="login_subtitle">
+        Por favor introduza as suas credenciais para aceder à sua conta.
+      </p>
+    </div>
+
+    <div class="w-full flex flex-wrap justify-center items-end gap-3">
+      <div class="w-full flex flex-col gap-1">
+        <p-iconfield class="w-full">
+          <p-inputicon class="pi pi-user" [ngStyle]="{ color: isInvalid('username') ? 'rgb(244,119,121)' : null }"/>
+          <input type="text" pInputText
+            id="login_user"
+            autocomplete="off"
+            formControlName="username"
+            placeholder="Nome de utilizador"
+            [invalid]="isInvalid('username')"
+          />
+        </p-iconfield>
+        @if (isInvalid('username')) {
+          <p-message severity="error" size="small" variant="simple">Digite o seu nome de utilizador</p-message>
+        }
+      </div>
+
+      <div class="w-full flex flex-col gap-1">
+        <p-iconfield class="w-full">
+          <p-inputicon class="pi pi-lock" [ngStyle]="{ color: isInvalid('password') ? 'rgb(244,119,121)' : null }"/>
+          <input type="{{ isPasswordVisible ? 'text' : 'password' }}" pInputText
+            id="on_password"
+            autocomplete="off"
+            formControlName="password"
+            placeholder="Palavra-passe"
+            [invalid]="isInvalid('password')"
+          />
+          <p-inputicon
+            class="password-icon"
+            [ngClass]="isPasswordVisible ? 'pi pi-eye-slash' : 'pi pi-eye'"
+            (click)="togglePassword()"
+            [ngStyle]="{ color: isInvalid('password') ? 'rgb(244,119,121)' : null }"
+          ></p-inputicon>
+        </p-iconfield>
+        @if (isInvalid('password')) {
+          <p-message severity="error" size="small" variant="simple">Digite a sua Palavra-passe</p-message>
+        }
+      </div>
+    </div>
+
+    <div class="flex justify-end">
+      <a pRipple type="button" class="btn-default text-sm"
+        [routerLink]="['/auth/forgot-password']"
+      >Esqueceu a Palavra-passe?</a>
+    </div>
+
+    <div class="mt-8"></div>
+    <button pRipple type="submit"
+      (click)="onSubmit()"
+      [disabled]="form.invalid || loading"
+      class="btn-sign-in w-full"
+      >
+      @if (loading) {
+        <div class="loader">
+          <span class="small_loader"></span>
+        </div>
+      }
+      @else {
+        Iniciar sessão
+      }
+    </button>
+  </form>
+</section>

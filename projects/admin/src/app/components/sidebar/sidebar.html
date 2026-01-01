@@ -1,0 +1,429 @@
+<section class="scrollbar_custom w-full h-full flex flex-col justify-between glass-sidebar overflow-y-auto!">
+  <article>
+    <div class="flex flex-col gap-2 items-center justify-center mb-5">
+      <img src="{{ logoUrl() }}" alt="logo" width="55">
+      @if (isCollapsed)
+      {
+        <span class="sub-title truncate text-center
+          w-full
+          max-[450px]:w-[150px]
+          max-[370px]:w-[50px]"
+        >
+          English Training Centre
+        </span>
+      }
+    </div>
+
+    <div class="sidebar_btn flex flex-col gap-1">
+      <a  pRipple
+          (click)="navigateTo([
+            { icon: 'objects-column', label: 'Painel Geral' }
+          ])"
+          routerLinkActive="active-btn"
+          [routerLinkActiveOptions]="{ exact: true }"
+          [routerLink]="['/admin/dashboard']"
+          class="flex gap-3 justify-start items-center"
+        >
+        <span class="active-span"></span>
+        <span class="flex gap-2 items-center">
+          <i class="pi pi-objects-column"></i>
+          @if (isCollapsed) { <p>Painel Geral</p> }
+        </span>
+      </a>
+
+      <a
+        pRipple
+        (click)="toggleBtn('academic')"
+        [ngClass]="{ 'active-btn': isActiveAcademic }"
+        class="flex gap-3 justify-start items-center cursor-pointer select-none"
+      >
+        <span class="active-span"></span>
+        <div class="w-full flex justify-between items-center">
+          <span class="flex gap-2 items-center">
+            <i class="pi pi-graduation-cap"></i>
+            @if (isCollapsed) { <p>Gestão Académica</p> }
+          </span>
+          <i
+            class="mr-2 transition-transform duration-300"
+            [ngClass]="isOpenAcademic ? 'pi pi-angle-up' : 'pi pi-angle-down'"
+            [style.transform]="isOpenAcademic ? 'rotate(180deg)' : 'rotate(0deg)'"
+          ></i>
+        </div>
+      </a>
+      @if (isOpenAcademic) {
+        <div class="overflow-hidden">
+          <div
+            class="pl-8"
+          >
+            <a pRipple
+              (click)="navigateTo([
+                { icon: 'graduation-cap', label: 'Gestão Académica / Alunos' }
+              ])"
+              routerLinkActive="active-btn"
+              [routerLinkActiveOptions]="{ exact: true }"
+              [routerLink]="['/admin/academic-management-students']"
+              class="flex gap-3 justify-start items-center"
+            >
+              <span class="flex gap-2 items-center">
+                <span class="active-line_btn"></span>
+                <p>Alunos</p>
+              </span>
+            </a>
+            <a pRipple
+              (click)="navigateTo([
+                { icon: 'graduation-cap', label: 'Gestão Académica / Avaliações' }
+              ])"
+              routerLinkActive="active-btn"
+              [routerLinkActiveOptions]="{ exact: true }"
+              [routerLink]="['/admin/academic-management-assessments']"
+              class="flex gap-3 justify-start items-center"
+            >
+              <span class="flex gap-2 items-center">
+                <span class="active-line_btn"></span>
+                <p>Avaliações</p>
+              </span>
+            </a>
+            <a pRipple
+              (click)="navigateTo([
+                { icon: 'graduation-cap', label: 'Gestão Académica / Nova Inscrição' }
+              ])"
+              routerLinkActive="active-btn"
+              [routerLinkActiveOptions]="{ exact: true }"
+              [routerLink]="['/admin/academic-management-new-enrollment']"
+              class="flex gap-3 justify-start items-center"
+            >
+              <span class="flex gap-2 items-center">
+                <span class="active-line_btn"></span>
+                <p>Nova Inscrição</p>
+              </span>
+            </a>
+          </div>
+        </div>
+      }
+
+      <a
+        pRipple
+        (click)="toggleBtn('financial')"
+        [ngClass]="{ 'active-btn': isActiveFinancial }"
+        class="flex gap-3 justify-start items-center cursor-pointer select-none"
+      >
+        <span class="active-span"></span>
+        <div class="w-full flex justify-between items-center">
+          <span class="flex gap-2 items-center">
+            <i class="pi pi-building-columns"></i>
+            @if (isCollapsed) { <p>Gestão Financeira</p> }
+          </span>
+          <i
+            class="mr-2 transition-transform duration-300"
+            [ngClass]="isOpenFinancial ? 'pi pi-angle-up' : 'pi pi-angle-down'"
+            [style.transform]="isOpenFinancial ? 'rotate(180deg)' : 'rotate(0deg)'"
+          ></i>
+        </div>
+      </a>
+
+      @if (isOpenFinancial) {
+        <div class="overflow-hidden">
+          <div
+            class="pl-8"
+          >
+            <a pRipple
+              (click)="navigateTo([
+                { icon: 'building-columns', label: 'Gestão Financeira / Pagamentos' }
+              ])"
+              routerLinkActive="active-btn"
+              [routerLinkActiveOptions]="{ exact: true }"
+              [routerLink]="['/admin/financial-management-payments']"
+              class="flex gap-3 justify-start items-center"
+            >
+              <span class="flex gap-2 items-center">
+                <span class="active-line_btn"></span>
+                <p>Pagamentos</p>
+              </span>
+            </a>
+            <a pRipple
+              (click)="navigateTo([
+                { icon: 'building-columns', label: 'Gestão Financeira / Contas a Pagar' }
+              ])"
+              routerLinkActive="active-btn"
+              [routerLinkActiveOptions]="{ exact: true }"
+              [routerLink]="['/admin/financial-management-accounts-payable']"
+              class="flex gap-3 justify-start items-center"
+            >
+              <span class="flex gap-2 items-center">
+                <span class="active-line_btn"></span>
+                <p>Contas a Pagar</p>
+              </span>
+            </a>
+            <a pRipple
+              (click)="navigateTo([
+                { icon: 'building-columns', label: 'Gestão Financeira / Contas a Receber' }
+              ])"
+              routerLinkActive="active-btn"
+              [routerLinkActiveOptions]="{ exact: true }"
+              [routerLink]="['/admin/financial-management-accounts-receivable']"
+              class="flex gap-3 justify-start items-center"
+            >
+              <span class="flex gap-2 items-center">
+                <span class="active-line_btn"></span>
+                <p>Contas a Receber</p>
+              </span>
+            </a>
+            <a pRipple
+              (click)="navigateTo([
+                { icon: 'building-columns', label: 'Gestão Financeira / Movimentos de Dinheiro' }
+              ])"
+              routerLinkActive="active-btn"
+              [routerLinkActiveOptions]="{ exact: true }"
+              [routerLink]="['/admin/financial-management-cash-movements']"
+              class="flex gap-3 justify-start items-center"
+            >
+              <span class="flex gap-2 items-center">
+                <span class="active-line_btn"></span>
+                <p>Movimentos de Dinheiro</p>
+              </span>
+            </a>
+            <a pRipple
+              (click)="navigateTo([
+                { icon: 'building-columns', label: 'Gestão Financeira / Extrato do Aluno' }
+              ])"
+              routerLinkActive="active-btn"
+              [routerLinkActiveOptions]="{ exact: true }"
+              [routerLink]="['/admin/financial-management-student-financial-statement']"
+              class="flex gap-3 justify-start items-center"
+            >
+              <span class="flex gap-2 items-center">
+                <span class="active-line_btn"></span>
+                <p>Extrato do Aluno</p>
+              </span>
+            </a>
+            <a pRipple
+              (click)="navigateTo([
+                { icon: 'building-columns', label: 'Gestão Financeira / Recibos' }
+              ])"
+              routerLinkActive="active-btn"
+              [routerLinkActiveOptions]="{ exact: true }"
+              [routerLink]="['/admin/financial-management-receipts']"
+              class="flex gap-3 justify-start items-center"
+            >
+              <span class="flex gap-2 items-center">
+                <span class="active-line_btn"></span>
+                <p>Recibos</p>
+              </span>
+            </a>
+            <a pRipple
+              (click)="navigateTo([
+                { icon: 'building-columns', label: 'Gestão Financeira / Relatório' }
+              ])"
+              routerLinkActive="active-btn"
+              [routerLinkActiveOptions]="{ exact: true }"
+              [routerLink]="['/admin/financial-management-reports']"
+              class="flex gap-3 justify-start items-center"
+            >
+              <span class="flex gap-2 items-center">
+                <span class="active-line_btn"></span>
+                <p>Relatório</p>
+              </span>
+            </a>
+          </div>
+        </div>
+      }
+
+      <a
+        pRipple
+        (click)="toggleBtn('accounting')"
+        [ngClass]="{ 'active-btn': isActiveAccounting }"
+        class="flex gap-3 justify-start items-center cursor-pointer select-none"
+      >
+        <span class="active-span"></span>
+        <div class="w-full flex justify-between items-center">
+          <span class="flex gap-2 items-center">
+            <i class="pi pi-chart-line"></i>
+            @if (isCollapsed) { <p>Contabilidade</p> }
+          </span>
+          <i
+            class="mr-2 transition-transform duration-300"
+            [ngClass]="isOpenAccounting ? 'pi pi-angle-up' : 'pi pi-angle-down'"
+            [style.transform]="isOpenAccounting ? 'rotate(180deg)' : 'rotate(0deg)'"
+          ></i>
+        </div>
+      </a>
+
+      @if (isOpenAccounting) {
+        <div class="overflow-hidden">
+          <div
+            class="pl-8"
+          >
+            <a pRipple
+              (click)="navigateTo([
+                { icon: 'building-columns', label: 'Finance / Revenue' }
+              ])"
+              routerLinkActive="active-btn"
+              [routerLinkActiveOptions]="{ exact: true }"
+              [routerLink]="['/admin/accounting-chart-of-accounts']"
+              class="flex gap-3 justify-start items-center"
+            >
+              <span class="flex gap-2 items-center">
+                <span class="active-line_btn"></span>
+                <p>Plano de Contas</p>
+              </span>
+            </a>
+            <a pRipple
+              (click)="navigateTo([
+                { icon: 'building-columns', label: 'Finance / Revenue' }
+              ])"
+              routerLinkActive="active-btn"
+              [routerLinkActiveOptions]="{ exact: true }"
+              [routerLink]="['/admin/accounting-journal-entries']"
+              class="flex gap-3 justify-start items-center"
+            >
+              <span class="flex gap-2 items-center">
+                <span class="active-line_btn"></span>
+                <p>Lançamentos</p>
+              </span>
+            </a>
+            <a pRipple
+              (click)="navigateTo([
+                { icon: 'building-columns', label: 'Finance / Revenue' }
+              ])"
+              routerLinkActive="active-btn"
+              [routerLinkActiveOptions]="{ exact: true }"
+              [routerLink]="['/admin/accounting-cash-flow']"
+              class="flex gap-3 justify-start items-center"
+            >
+              <span class="flex gap-2 items-center">
+                <span class="active-line_btn"></span>
+                <p>Fluxo de Caixa</p>
+              </span>
+            </a>
+            <a pRipple
+              (click)="navigateTo([
+                { icon: 'building-columns', label: 'Finance / Revenue' }
+              ])"
+              routerLinkActive="active-btn"
+              [routerLinkActiveOptions]="{ exact: true }"
+              [routerLink]="['/admin/accounting-general-ledger']"
+              class="flex gap-3 justify-start items-center"
+            >
+              <span class="flex gap-2 items-center">
+                <span class="active-line_btn"></span>
+                <p>Livro Razão</p>
+              </span>
+            </a>
+            <a pRipple
+              (click)="navigateTo([
+                { icon: 'building-columns', label: 'Finance / Revenue' }
+              ])"
+              routerLinkActive="active-btn"
+              [routerLinkActiveOptions]="{ exact: true }"
+              [routerLink]="['/admin/accounting-reports']"
+              class="flex gap-3 justify-start items-center"
+            >
+              <span class="flex gap-2 items-center">
+                <span class="active-line_btn"></span>
+                <p>Relatório</p>
+              </span>
+            </a>
+          </div>
+        </div>
+      }
+
+      <a  pRipple
+          (click)="navigateTo([
+            { icon: 'users', label: 'Recursos Humanos' }
+          ])"
+          routerLinkActive="active-btn"
+          [routerLinkActiveOptions]="{ exact: true }"
+          [routerLink]="['/admin/human-resources']"
+          class="flex gap-3 justify-start items-center"
+        >
+        <span class="active-span"></span>
+        <span class="flex gap-2 items-center">
+          <i class="pi pi-users"></i>
+          @if (isCollapsed) { <p>Recursos Humanos</p> }
+        </span>
+      </a>
+
+      <p-divider/>
+
+      <a  pRipple
+          routerLinkActive="active-btn"
+          [routerLinkActiveOptions]="{ exact: true }"
+          [routerLink]="['/admin/messages']"
+          class="flex gap-3 justify-start items-center"
+        >
+        <span class="active-span"></span>
+        <span class="w-full flex items-center justify-between mr-2">
+          <span class="flex gap-2 items-center">
+            <i class="pi pi-comment"></i>
+            @if (isCollapsed) { <p>Mensagens</p> }
+          </span>
+          <p-badge value="5" badgeSize="small" severity="success" />
+        </span>
+      </a>
+      <a  pRipple
+          routerLinkActive="active-btn"
+          [routerLinkActiveOptions]="{ exact: true }"
+          [routerLink]="['/admin/notifications']"
+          class="flex gap-3 justify-start items-center"
+      >
+        <span class="active-span"></span>
+        <span class="w-full flex items-center justify-between mr-2">
+          <span class="flex gap-2 items-center">
+            <i class="pi pi-bell"></i>
+            @if (isCollapsed) { <p>Notificações</p> }
+          </span>
+          <p-badge value="8" badgeSize="small" severity="info"/>
+        </span>
+      </a>
+
+      <p-divider/>
+
+      <a  pRipple
+          (click)="navigateTo([
+            { icon: 'users', label: 'Utilizadores' }
+          ])"
+          routerLinkActive="active-btn"
+          [routerLinkActiveOptions]="{ exact: true }"
+          [routerLink]="['/admin/users']"
+          class="flex gap-3 justify-start items-center"
+        >
+        <span class="active-span"></span>
+        <span class="flex gap-2 items-center">
+          <i class="pi pi-desktop"></i>
+          @if (isCollapsed) { <p>Utilizadores</p> }
+        </span>
+      </a>
+      <a  pRipple
+          (click)="navigateTo([
+            { icon: 'cog', label: 'Definições' }
+          ])"
+          routerLinkActive="active-btn"
+          [routerLinkActiveOptions]="{ exact: true }"
+          [routerLink]="['/admin/settings']"
+          class="flex gap-3 justify-start items-center"
+        >
+        <span class="active-span"></span>
+        <span class="flex gap-2 items-center">
+          <i class="pi pi-cog"></i>
+          @if (isCollapsed) { <p>Definições</p> }
+        </span>
+      </a>
+    </div>
+  </article>
+  <article class="sidebar_btn mt-10">
+    <a  pRipple
+        class="flex gap-3 justify-start items-center">
+      <span class="active-span"></span>
+      <span class="flex gap-2 items-center">
+        <i class="pi pi-sign-out"></i>
+        @if (isCollapsed) { <p>Sign Out</p> }
+      </span>
+    </a>
+    @if (isCollapsed)
+    {
+      <footer class="flex justify-center text-[9pt]">
+        © 2026 · Todos os direitos reservados.
+      </footer>
+    }
+  </article>
+</section>

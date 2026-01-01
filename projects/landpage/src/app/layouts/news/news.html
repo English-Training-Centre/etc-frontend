@@ -1,0 +1,29 @@
+<section class="contact-us px-80 py-40 w-full flex flex-col gap-3 justify-center items-center">
+  <h1 class="news-animate-in">Mantenha-se <span class="gradient-text">Informado</span></h1>
+  <p class="news-animate-in w-150 text-center">
+    Descubra as últimas atualizações, histórias de sucesso e eventos emocionantes no English Training Centre.
+  </p>
+</section>
+
+<section class="w-full px-80 py-20 pb-40 flex flex-col gap-10 justify-center items-top">
+  <article class="flex flex-col gap-3 news-animate-in">
+    <p-iconfield class="news-animate-in">
+      <p-inputicon class="pi pi-search" />
+      <input type="text" pInputText id="search" autocomplete="off" placeholder="Pesquisar"/>
+    </p-iconfield>
+
+    <div class="flex gap-3 justify-center items-center news-animate-in">
+      <button pRipple type="button" class="btn-news-actived">Todas</button>
+      <button pRipple type="button" class="btn-news">Videos</button>
+      <button pRipple type="button" class="btn-news">Conquistas</button>
+      <button pRipple type="button" class="btn-news">Eventos</button>
+      <button pRipple type="button" class="btn-news">Notícias</button>
+    </div>
+  </article>
+
+  <article class="latest-new w-full grid grid-cols-3 gap-10">
+    @for (n of [1,2,3,4,5,6,7,8,9,10,11,12]; track n) {
+      <app-card-latest-news class="news-card-stagger"></app-card-latest-news>
+    }
+  </article>
+</section>

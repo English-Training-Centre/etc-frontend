@@ -1,0 +1,9 @@
+<div [class.hidden]="isNotEnrolled()">
+  <header><app-navbar></app-navbar></header>
+  <main><router-outlet /></main>
+  <footer><app-footer></app-footer></footer>
+</div>
+
+@if (isNotEnrolled()) {
+  <app-not-enrolled></app-not-enrolled>
+}

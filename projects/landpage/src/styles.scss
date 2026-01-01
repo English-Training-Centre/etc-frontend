@@ -1,0 +1,575 @@
+@use "../../core/src/lib/assets/theme/global.scss";
+
+html, body {
+  @extend .container;
+  width: 100%;
+  min-height: 100%;
+  overflow-y: overlay;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+  margin: 0;
+  padding: 0;
+
+  cursor: default;
+  user-select: none;
+
+  @extend .k2d-light;
+  font-size: clamp(10pt, 2dvw, 11pt);
+  color: var(--text-color);
+
+  a, button {
+    cursor: pointer;
+  }
+}
+
+body {
+  overscroll-behavior: contain; // evita "bounce" indesejado no mobile
+}
+
+.container {
+  position: relative;
+  background-color: var(--background-color, #000);
+
+  will-change: background-position;
+
+  background-image:
+    radial-gradient(4px 100px at 20% 0, #09f 0%, transparent 30%),
+    radial-gradient(4px 100px at 80% 0, #09f 0%, transparent 30%),
+
+    radial-gradient(2.5px 60px at 50% 0, #09f 0%, transparent 40%),
+
+    radial-gradient(1.5px 1.5px at 30% 0, #09f 100%, transparent),
+    radial-gradient(1.5px 1.5px at 70% 0, #09f 100%, transparent);
+
+  background-size:
+    600px 600px,
+    600px 600px,
+    400px 400px,
+    200px 200px,
+    200px 200px;
+
+  background-repeat: repeat-x repeat-y;
+  background-position:
+    0 0,
+    0 0,
+    0 0,
+    0 0,
+    100px 0;
+
+  animation: falling-stars 60s linear infinite;
+}
+
+@keyframes falling-stars {
+  from {
+    background-position:
+      0 0,
+      0 0,
+      0 400px,
+      0 0,
+      100px 0;
+  }
+  to {
+    background-position:
+      0 6000px,
+      0 6000px,
+      0 8000px,
+      0 12000px,
+      100px 12000px;
+  }
+}
+
+.scrollbar_custom {
+  background: transparent;
+  background-clip: padding-box;
+
+  &::-webkit-scrollbar {
+    width: 0;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: transparent;
+  }
+}
+
+h4, h5, h1, h2 { @extend .k2d-bold; }
+
+h4 { font-size: clamp(12pt, 2dvw, 14pt); }
+h5 { font-size: clamp(12pt, 2dvw, 14pt); }
+h1 { font-size: clamp(35pt, 2dvw, 40pt); }
+h2 { font-size: clamp(18pt, 2dvw, 24pt); }
+
+.scroll_bg-trans {
+  background: transparent;
+  border: transparent;
+}
+
+.scroll_bg-default {
+  background-clip: content-box;
+  background: var(--navbar-background);
+  backdrop-filter: var(--navbar-backdrop-filter);
+  -webkit-backdrop-filter: var(--navbar-backdrop-filter);
+}
+
+.default_card {
+  background-clip: content-box;
+  background: var(--background-color);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transition: all 250ms ease-in-out;
+
+  &:hover {
+    border-color: oklch(45.617% 0.17271 299.33 / 0.5);
+    box-shadow: 0 0 1rem oklch(74.21% 0.23707 324.322 / 0.5);
+    transform: translateY(-5px);
+  }
+}
+
+.gradient-text {
+  background: linear-gradient(120deg, #5b2cff, #ff7a18);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+  animation: gradientFlow 14s ease-in-out infinite;
+  transition: all 0.4s ease;
+
+  &:hover {
+    animation-duration: 4s; /* acelera no hover */
+    filter: brightness(1.2);
+    text-shadow: 0 0 20px rgba(255, 122, 24, 0.5);
+  }
+}
+
+@keyframes gradientFlow {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.gradient-text-first {
+  background: linear-gradient(
+    120deg,
+    rgb(210, 159, 255) 0%,
+    rgba(80, 18, 134, 0.863) 50%,
+    rgb(255, 138, 65) 85%,
+    rgba(249, 116, 22, 0.705) 100%
+  );
+  background-size: 400% 400%;
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+
+  display: inline-block;
+
+  animation: gradientFlow 20s ease-in-out infinite;
+  @keyframes gradientFlow {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+}
+
+.gradient-text-second {
+  background: linear-gradient(
+    -90deg,
+    rgb(210, 159, 255) 0%,
+    rgba(80, 18, 134, 0.863) 50%,
+    rgb(255, 138, 65) 85%,
+    rgba(249, 116, 22, 0.705) 100%
+  );
+  background-size: 400% 400%;
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+
+  display: inline-block;
+
+  animation: gradientFlow 20s ease-in-out infinite;
+  @keyframes gradientFlow {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+}
+
+.icon-check {
+  i { color: #9b5cff; }
+}
+
+.navbar {
+  small { color: var(--orange-color); }
+
+  .btn_nav, button {
+    color: var(--label-color);
+    padding: 0.3rem 0.6rem;
+    border-radius: 0.5rem;
+    &:hover
+    {
+      color: var(--status-yellow-color) !important;
+      text-decoration-line: underline;
+      text-decoration-color: var(--status-yellow-color);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.4rem;
+      transition: all 250ms ease-in-out;
+    }
+  }
+
+  .btn_nav-actived {
+    color: var(--orange-color);
+    text-decoration-line: underline;
+    text-decoration-color: var(--orange-color);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.5rem;
+    transition: all 450ms ease-in-out;
+  }
+
+  .nav_btn_enroll {
+    color: white;
+    background: var(--bgrnd-orange-gradient);
+    padding: 0.3rem 1rem;
+    border-radius: 0.5rem;
+
+    &:hover {
+      background: var(--orange-color);
+    }
+  }
+}
+
+.footer, .footer-rights {
+  a { &:hover { color: var(--orange-color)!important; } }
+  p, a, .powered { color: var(--label-color); }
+}
+
+.footer {
+  small { color: var(--orange-color); }
+
+  .title { margin-bottom: 1.5rem; }
+
+  .icon_btn {
+    i {
+      color: white;
+      background-color: rgba(30, 41, 57);
+      padding: 0.5rem;
+      font-size: 1.2rem;
+      border-radius: 0.5rem;
+
+      &:hover {
+        cursor: pointer;
+        background-color: var(--orange-color)!important;
+      }
+    }
+  }
+}
+
+.footer-rights {
+  p, a {
+    font-size: clamp(9pt, 2dvw, 10pt);
+    color: var(--label-color);
+  }
+}
+
+.badge {
+  @extend .k2d-bold;
+  background-color: var(--status-orange-background);
+  color: var(--status-orange-color);
+  padding: 0.5rem 1.6rem;
+  box-shadow: var(--badge-shadow);
+  animation: shadowBlink 1.2s ease-in-out infinite;
+
+  @keyframes shadowBlink {
+    0%, 100% {
+      opacity: 1;
+    }
+
+    50% {
+      opacity: 0.5;
+    }
+  }
+}
+
+.btn_enroll {
+  color: white;
+  background: var(--bgrnd-orange-gradient);
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+
+  i { font-size: 0.75rem; }
+}
+
+.btn_learn-more {
+  color: var(--status-orange-color);
+  background: transparent;
+  padding: 0.45rem 1.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--status-orange-color);
+
+  &:active {
+    background: var(--status-orange-background);
+  }
+}
+
+.btn_enrol {
+  color: var(--status-orange-color);
+  background: transparent;
+  padding: 0.6rem 1.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--status-orange-color);
+
+  &:hover {
+    background: var(--status-orange-background);
+  }
+
+  &:active {
+    background: var(--status-orange-background);
+  }
+}
+
+.home {
+  background: var(--home-gradient-elegant);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 400% 400%;
+  animation: gradientFlow 20s ease-in-out infinite;
+
+  @keyframes gradientFlow {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  .title {
+    @extend .k2d-bold;
+    font-size: clamp(37pt, 2dvw, 40pt);;
+    letter-spacing: 0em;
+    line-height: 1.2;
+  }
+
+  .info_enroll {
+    background-color: var(--status-green-background);
+    color: var(--status-green-color);
+    padding: 0.5rem 1.6rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--status-green-color);
+
+    i { font-size: 1.5rem; }
+  }
+
+  .stats {
+    span {
+      @extend .k2d-extrabold;
+      font-size: 2rem;
+    }
+
+    i { font-size: 1.5rem; }
+    small { color: var(--label-color); }
+  }
+
+  .certified_card {
+    position: absolute;
+    color: white;
+    bottom: 0.5rem;
+    padding: 1rem 2rem;
+    background: var(--certified-background);
+    backdrop-filter: var(--certified-backdrop-filter);
+    -webkit-backdrop-filter: var(--certified-backdrop-filter);
+    box-shadow: var(--certified-shadow);
+    border-radius: 0.5rem;
+
+    i {
+      color: white;
+      background: var(--bgrnd-orange-gradient);
+      padding: 1rem;
+      font-size: 1.2rem;
+    }
+  }
+}
+
+.home-contact-us {
+  background: linear-gradient(to bottom left, #4D7CFF, #9D4EDD);
+}
+
+.about {
+  .card {
+    @extend .default_card;
+    min-width: 5rem;
+    min-height: 5rem;
+    padding: 2rem;
+    backdrop-filter: var(--card-backdrop-filter);
+    -webkit-backdrop-filter: var(--card-backdrop-filter);
+    border: var(--card-border);
+    border-radius: 1rem;
+
+    i {
+      padding: 1rem;
+      font-size: 1.5rem;
+      border-radius: 0.5rem;
+    }
+  }
+}
+
+.services {
+  background: var(--card-background);
+  backdrop-filter: var(--card-backdrop-filter);
+  -webkit-backdrop-filter: var(--card-backdrop-filter);
+
+  .common_card {
+    min-width: 5rem;
+    min-height: 5rem;
+    padding: 2rem 4rem;
+    background-clip: content-box;
+    background-color: transparent;
+    border-radius: 1rem;
+    transition: all 0.3s ease;
+  }
+}
+
+.latest-new {
+  .card {
+    @extend .default_card;
+    cursor: pointer;
+
+    button {
+      background: transparent;
+      color: var(--orange-color);
+      padding: 0.5rem 1.5rem;
+      border-radius: 0.5rem;
+
+      i { font-size: 0.75rem; }
+
+      &:hover {
+        text-decoration-line: underline;
+        text-decoration-color: var(--orange-color);
+        text-decoration-thickness: 1px;
+        text-underline-offset: 0.4rem;
+        transition: all 450ms ease-in-out;
+      }
+    }
+  }
+}
+
+.btn-news {
+  background: transparent;
+  color: var(--text-color);
+  border: 0.1rem solid var(--border-color);
+  border-radius: 0.5rem;
+  padding: 0.39rem 1rem;
+
+  &:hover {
+    background: oklch(60% 0 0 / 0.2);
+  }
+}
+
+.btn-news-actived {
+  background: var(--status-yellow-background);
+  color: var(--status-yellow-color);
+  border: 0.1rem solid var(--status-yellow-color);
+  border-radius: 0.5rem;
+  padding: 0.39rem 1rem;
+}
+
+.contact-us {
+  background: var(--home-gradient-elegant);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 400% 400%;
+  animation: gradientFlow 20s ease-in-out infinite;
+
+  @keyframes gradientFlow {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+}
+
+.contact-card {
+  .card {
+    background-clip: content-box;
+    background: var(--auth-background);
+    min-width: 5rem;
+    min-height: 5rem;
+    padding: 2rem;
+    backdrop-filter: var(--auth-backdrop-filter);
+    -webkit-backdrop-filter: var(--auth-backdrop-filter);
+    border: var(--card-border);
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+
+    i {
+      padding: 1rem;
+      font-size: 1.5rem;
+      border-radius: 0.5rem;
+    }
+
+    p { color: var(--label-color); }
+  }
+
+  button {
+    color: var(--status-orange-color);
+    background: transparent;
+    border-radius: 0.5rem;
+    border: 1px solid var(--status-orange-color);
+
+    &:hover {
+      background: var(--status-orange-background);
+    }
+
+    &:active {
+      background: var(--status-orange-background);
+    }
+  }
+
+  .maps-link {
+    text-align: center;
+    color: var(--orange-color);
+    text-decoration: none;
+  }
+
+  .maps-link:hover {
+    text-decoration: underline;
+  }
+}
+
+.enrolment {
+  small, p { color: var(--label-color); }
+}
+
+.enrolment_card {
+  background-clip: content-box;
+  background: var(--auth-background);
+  backdrop-filter: var(--auth-backdrop-filter);
+  -webkit-backdrop-filter: var(--auth-backdrop-filter);
+  border-radius: 1rem;
+}

@@ -1,0 +1,51 @@
+<nav [class.scroll_bg-trans]="!scrolled" [class.scroll_bg-default]="scrolled"
+  class="navbar fixed top-0 left-0 right-0 z-1000 px-80 py-4 w-full flex justify-between items-center"
+>
+  <div
+    [routerLink]="['/']"
+    class="flex gap-3 items-center"
+  >
+    <img src="{{ logoUrl() }}" alt="logo" width="55">
+    <div class="title flex flex-col gap-0">
+      <h4>English Training Centre</h4>
+      <small>O Seu Futuro Começa Aqui</small>
+    </div>
+  </div>
+  <div class="flex gap-1 items-center">
+    <a pRipple class="btn_nav"
+      routerLinkActive="btn_nav-actived"
+      [routerLinkActiveOptions]="{ exact: true }"
+      [routerLink]="['/']"
+    >Início</a>
+    <a pRipple class="btn_nav"
+      routerLinkActive="btn_nav-actived"
+      [routerLinkActiveOptions]="{ exact: true }"
+      [routerLink]="['/news']"
+    >Notícias</a>
+    <a pRipple class="btn_nav"
+      routerLinkActive="btn_nav-actived"
+      [routerLinkActiveOptions]="{ exact: true }"
+      [routerLink]="['/contact']"
+    >Contacto</a>
+    <button pRipple (click)="toggleTheme()">
+      <i
+        class="pi"
+        [ngClass]="isDark() ? 'pi-sun' : 'pi-moon'"
+      ></i>
+    </button>
+    <button pRipple class="flex gap-2 items-center">
+      <i class="pi pi-globe"></i>
+      <span>PT</span>
+    </button>
+    <a pRipple
+      [routerLink]="['/enrolment']"
+      class="nav_btn_enroll mr-2 flex gap-2 items-center justify-center"
+    >Inscrever-se
+    </a>
+    <a pRipple
+      (click)="onSignIn()"
+      class="nav_btn_enroll flex gap-2 items-center justify-center"
+    >Entrar
+    </a>
+  </div>
+</nav>

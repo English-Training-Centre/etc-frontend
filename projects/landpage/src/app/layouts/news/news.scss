@@ -1,0 +1,105 @@
+$ease-out: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+$ease-spring: cubic-bezier(0.68, -0.55, 0.27, 1.55);
+
+// Classe base para animação ao entrar na tela
+.news-animate-in {
+  opacity: 0;
+  transform: rotateY(80deg) translateY(40px);
+  transform-origin: center;
+  transform-style: preserve-3d;
+  transition: opacity 1s $ease-out, transform 1s $ease-out;
+
+  &.visible {
+    opacity: 1;
+    transform: rotateY(0) translateY(0);
+  }
+}
+
+// Variação para cards com stagger
+.news-card-stagger {
+  @extend .news-animate-in;
+  transition-delay: calc(0.1s * var(--stagger-index));
+}
+
+// Barra de busca + filtros com entrada suave
+article > .flex-col {
+  .p-iconfield {
+    @extend .news-animate-in;
+    transition-delay: 1s;
+  }
+
+  .flex.gap-3 {
+    @extend .news-animate-in;
+    transition-delay: 1.2s;
+
+    .btn-news,
+    .btn-news-actived {
+      @extend .news-animate-in;
+      display: inline-block;
+      transition: all 0.4s $ease-out;
+
+      // Animação ao ativar filtro
+      &.active,
+      &.btn-news-actived {
+        transform: scale(1.1);
+        box-shadow: 0 0 1.5rem rgba(155, 92, 255, 0.4);
+      }
+    }
+  }
+}
+
+// Cards de notícias - Efeito flip 3D + hover premium
+.latest-new {
+  perspective: 2000px;
+
+  app-card-latest-news {
+    @extend .news-card-stagger;
+    will-change: transform, box-shadow;
+  }
+}
+
+// ========================================
+// STAGGER AUTOMÁTICO NOS CARDS (via JS ou inline)
+// ========================================
+// Vamos usar um pequeno truque com CSS custom property
+.latest-new {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+
+  app-card-latest-news {
+    --stagger-index: 0; // default
+
+    &:nth-child(1)  { --stagger-index: 1; }
+    &:nth-child(2)  { --stagger-index: 2; }
+    &:nth-child(3)  { --stagger-index: 3; }
+    &:nth-child(4)  { --stagger-index: 4; }
+    &:nth-child(5)  { --stagger-index: 5; }
+    &:nth-child(6)  { --stagger-index: 6; }
+    &:nth-child(7)  { --stagger-index: 7; }
+    &:nth-child(8)  { --stagger-index: 8; }
+    &:nth-child(9)  { --stagger-index: 9; }
+    &:nth-child(10) { --stagger-index: 10; }
+    // ... continua até o 20 se quiseres
+  }
+}
+
+// ========================================
+// HOVER EXTRA NOS BOTÕES DE FILTRO
+// ========================================
+.btn-news {
+  transition: all 0.4s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    background: oklch(60% 0 0 / 0.15);
+    border-color: var(--orange-color);
+  }
+}
+
+.btn-news-actived {
+  background: var(--status-yellow-background, #f59e0b);
+  color: white;
+  border: none;
+  box-shadow: 0 0 1rem rgba(245, 158, 11, 0.4);
+}

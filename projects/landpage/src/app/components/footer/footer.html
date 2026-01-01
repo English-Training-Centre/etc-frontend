@@ -1,0 +1,62 @@
+<section class="footer px-80 pt-40 pb-10 w-full flex gap-20 justify-between items-start">
+  <article class="w-fit flex flex-col gap-3 justify-between items-start">
+    <div class="flex gap-3 items-start">
+      <img src="{{ logoUrl() }}" alt="logo" width="50">
+      <span class="title flex flex-col gap-0">
+        <h5 class="opacity-90">English Training Centre</h5>
+        <small>O Seu Futuro Começa Aqui</small>
+      </span>
+    </div>
+    <div class="grid gap-2">
+      <span>
+        <span class="font-bold opacity-90">Endereço</span>
+        <p>Matola - Machava Bedene, Próximo à Maternidade</p>
+      </span>
+      <span>
+        <span class="font-bold opacity-90">Telefone</span>
+        <p>(+258) 84 767 5145 / 87 970 8167</p>
+      </span>
+      <span>
+        <span class="font-bold opacity-90">Email</span>
+        <p>etc.elf@gmail.com</p>
+      </span>
+    </div>
+    <span class="icon_btn flex gap-3 mt-3">
+      <i class="pi pi-facebook"></i>
+      <i class="pi pi-instagram"></i>
+      <i class="pi pi-whatsapp"></i>
+    </span>
+  </article>
+  <article class="w-fit">
+    <h5 class="title opacity-90">Nossos Programas</h5>
+    <span class="grid gap-2">
+      <a pRipple type="button" (click)="goAndScroll('speaking')">Speaking</a>
+      <a pRipple type="button" (click)="goAndScroll('listening')">Listening</a>
+      <a pRipple type="button" (click)="goAndScroll('writing')">Writing</a>
+      <a pRipple type="button" (click)="goAndScroll('grammar')">Grammar</a>
+      <a pRipple type="button" (click)="goAndScroll('online')">Aulas Online</a>
+      <a pRipple type="button" (click)="goAndScroll('inPerson')">Aulas Presenciais</a>
+    </span>
+  </article>
+  <article class="w-fit">
+    <h5 class="title opacity-90">Links Rápidos</h5>
+    <span class="grid gap-2">
+      <a type="button" (click)="goAndScroll('about')">Sobre Nós</a>
+      <a type="button" (click)="goAndScroll('services')">Nossos Serviços</a>
+      <a type="button" (click)="goAndScroll('latest-new')">Últimas Notícias</a>
+      <a type="button" [routerLink]="['/news']">Todas Notícias</a>
+      <a type="button" [routerLink]="['/contact']">Contacto</a>
+    </span>
+  </article>
+</section>
+<span class="mx-80 border-b-1 border-gray-600 block opacity-80"></span>
+<section class="footer-rights px-80 pt-4 pb-10 w-full flex justify-between items-center">
+  <article>
+    <p>© 2026 · English Training Centre. Todos os direitos reservados.</p>
+  </article>
+  <article class="flex gap-5 items-center">
+    <a>Política de Privacidade</a>
+    <a>Termos de Serviço</a>
+    <a>Política de Cookies</a>
+  </article>
+</section>

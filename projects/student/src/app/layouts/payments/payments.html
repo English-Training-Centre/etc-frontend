@@ -1,0 +1,92 @@
+<main class="min-h-screen bg-gray-50 p-6 space-y-6">
+
+  <!-- Header -->
+  <div>
+    <h1 class="text-2xl font-bold text-gray-900">Gestão de Pagamentos</h1>
+    <p class="text-sm text-gray-500">
+      Consulte e gerencie todos os seus pagamentos
+    </p>
+  </div>
+
+  <!-- Summary Cards -->
+  <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+
+    <!-- Saldo Devedor -->
+    <div class="rounded-2xl p-5 text-white bg-red-600 shadow-md animate-card">
+      <div
+        class="w-10 h-10 mb-4 flex items-center justify-center rounded-lg
+               bg-white/20">
+        💳
+      </div>
+      <p class="text-sm opacity-90">Saldo Devedor</p>
+      <p class="text-2xl font-bold mt-1">2 500,00 MT</p>
+    </div>
+
+    <!-- Total Pago -->
+    <div class="rounded-2xl p-5 text-white bg-green-500 shadow-md animate-card">
+      <div
+        class="w-10 h-10 mb-4 flex items-center justify-center rounded-lg
+               bg-white/20">
+        💰
+      </div>
+      <p class="text-sm opacity-90">Total Pago</p>
+      <p class="text-2xl font-bold mt-1">15 000,00 MT</p>
+    </div>
+
+    <!-- Próximo Vencimento -->
+    <div
+      class="rounded-2xl p-5 text-white shadow-md animate-card
+             bg-gradient-to-br from-indigo-600 to-violet-600">
+      <div
+        class="w-10 h-10 mb-4 flex items-center justify-center rounded-lg
+               bg-white/20">
+        📅
+      </div>
+      <p class="text-sm opacity-90">Próximo Vencimento</p>
+      <p class="text-2xl font-bold mt-1">2 500,00 MT</p>
+      <p class="text-xs opacity-80 mt-1">10 de janeiro de 2025</p>
+    </div>
+
+    <!-- Total de Transações -->
+    <div
+      class="rounded-2xl p-5 text-white shadow-md animate-card
+             bg-gradient-to-br from-fuchsia-600 to-purple-600">
+      <div
+        class="w-10 h-10 mb-4 flex items-center justify-center rounded-lg
+               bg-white/20">
+        💼
+      </div>
+      <p class="text-sm opacity-90">Total de Transações</p>
+      <p class="text-2xl font-bold mt-1">8</p>
+      <p class="text-xs opacity-80">6 pagas | 1 pendente</p>
+    </div>
+
+  </div>
+
+  <!-- Filters & Actions -->
+  <div class="bg-white rounded-2xl p-6 shadow-sm space-y-4">
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <input
+        type="text"
+        placeholder="Procurar por descrição ou ID..."
+        class="w-full rounded-lg border px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+
+      <select class="rounded-lg border px-4 py-2">
+        <option>Todos</option>
+      </select>
+
+      <select class="rounded-lg border px-4 py-2">
+        <option>Todos os Tipos</option>
+      </select>
+    </div>
+
+    <div class="flex gap-3">
+      <button class="btn-red">Exportar PDF</button>
+      <button class="btn-green">Exportar Excel</button>
+      <button class="btn-purple">Exportar CSV</button>
+    </div>
+
+  </div>
+
+</main>

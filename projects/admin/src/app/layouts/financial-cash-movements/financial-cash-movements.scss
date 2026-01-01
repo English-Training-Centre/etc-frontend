@@ -1,0 +1,87 @@
+/* Card base */
+.account-card {
+  width: 100%;
+  color: #fff;
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.25);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.account-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 28px 45px rgba(0, 0, 0, 0.35);
+}
+
+/* Cores */
+.account-card.blue {
+  background: linear-gradient(135deg, #4f6df5, #5b7cfa);
+}
+
+.account-card.green {
+  background: linear-gradient(135deg, #4fb981, #3fae8f);
+}
+
+.account-card.pink {
+  background: linear-gradient(135deg, #b86cf3, #e35ba9);
+}
+
+.account-card.orange {
+  background: linear-gradient(135deg, #ff6a2c, #f44336);
+}
+
+/* Header */
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.badge {
+  font-size: 12px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(6px);
+}
+
+.icon-box {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+
+/* Conteúdo */
+.account-card h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.sub {
+  font-size: 13px;
+  opacity: 0.9;
+}
+
+.divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.25);
+  margin: 16px 0;
+}
+
+.label {
+  font-size: 13px;
+  opacity: 0.85;
+}
+
+.amount {
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}

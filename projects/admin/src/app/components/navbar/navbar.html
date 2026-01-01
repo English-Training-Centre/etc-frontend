@@ -1,0 +1,83 @@
+<p-toolbar [style]="{ 'border': '0', 'padding': '0', 'background': 'transparent'}">
+  <ng-template #start>
+     <article class="flex justify-start items-center gap-10">
+      <div class="flex justify-start items-center gap-2">
+        <label class="switch-button" for="switch">
+          <div class="switch-outer">
+            <input id="switch" type="checkbox"
+              [checked]="isCollapsed"
+              (change)="toggleCollapsed.emit()"
+            />
+            <div class="button">
+              <span class="button-toggle"></span>
+              <span class="button-indicator"></span>
+            </div>
+          </div>
+        </label>
+        <button class="btn_only_icon">
+          <i class="pi pi-expand"></i>
+        </button>
+      </div>
+      <div class="flex justify-start items-center gap-2">
+        @for (breadcrumb of breadcrumbs; track breadcrumb.label; let last = $last)
+        {
+          @if (!last)
+          {
+            <a
+              (click)="goBackTo(breadcrumb.label)"
+            >
+            {{ breadcrumb.label }}
+            </a>
+          }
+          @if (last) { <i class="pi pi-{{  breadcrumb.icon }}"></i> {{ breadcrumb.label }} }
+          @if (!last) { &nbsp;/&nbsp;&nbsp; }
+        }
+      </div>
+    </article>
+  </ng-template>
+
+  <ng-template #center>
+    Sat Dec 27 14:45:21
+  </ng-template>
+
+  <ng-template #end>
+    <div class="flex items-center gap-2">
+      <button class="btn_only_icon" (click)="toggleLanguage()">
+        PT
+      </button>
+      <button class="btn_only_icon" (click)="toggleTheme()">
+        <i
+          class="pi"
+          [ngClass]="isDark() ? 'pi-sun' : 'pi-moon'"
+        ></i>
+      </button>
+      <button class="btn_only_icon">
+        <p-overlaybadge severity="success">
+          <i class="pi pi-comments"></i>
+        </p-overlaybadge>
+      </button>
+      <button class="btn_only_icon">
+        <p-overlaybadge severity="info">
+          <i class="pi pi-bell"></i>
+        </p-overlaybadge>
+      </button>
+
+      <button>
+        @if (false)
+        {
+          <p-avatar image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png" [style]="{ width: '40px', height: '40px' }" />
+        }
+        @else
+        {
+          <div class="flex justify-center">
+            <div
+              class="flex justify-center items-center bg-[#24704D] text-[#FFFFFF] text-xl font-bold w-10 h-10 rounded-full"
+            >
+              {{ ('Ramadan Ibraimo').charAt(0).toUpperCase() }}
+            </div>
+          </div>
+        }
+      </button>
+    </div>
+  </ng-template>
+</p-toolbar>

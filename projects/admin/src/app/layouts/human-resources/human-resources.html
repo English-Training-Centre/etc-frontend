@@ -1,0 +1,76 @@
+<section class="w-full h-full flex flex-col gap-5">
+  <article class="default_btn">
+    <button pRipple type="button"
+      class="flex gap-4 justify-center items-center"
+    >
+      <i class="pi pi-plus" style="font-size: 0.7rem"></i>
+      <span>Novo Funcionário</span>
+    </button>
+  </article>
+  <article class="w-full grid grid-cols-4 gap-5">
+    @for (n of [1,2,3]; track n) {
+      <div class="user-card">
+        <!-- Header -->
+        <div class="user-card__header"></div>
+
+        <!-- Avatar -->
+        <div class="user-card__avatar flex justify-center items-center">
+          @if (false)
+          {
+            <p-avatar image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png" [style]="{ width: '88px', height: '88px' }" />
+          }
+          @else
+          {
+            <div class="flex justify-center">
+              <div
+                class="flex justify-center items-center bg-[#24704D] text-[#FFFFFF] text-5xl w-[88px] h-[88px] rounded-full"
+              >
+                {{ ('Ramadan Ibraimo').charAt(0).toUpperCase() }}
+              </div>
+            </div>
+          }
+        </div>
+
+        <!-- Role -->
+        <span class="user-card__role">
+          <i class="pi pi-shield"></i>
+          Administrador
+        </span>
+
+        <!-- Info -->
+        <h3 class="user-card__name">Carlos Mendes</h3>
+
+        <p class="user-card__email">
+          <i class="pi pi-envelope"></i>
+          carlos.mendes@empresa.com
+        </p>
+
+        <!-- Meta -->
+        <div class="user-card__meta">
+          <div>
+            <span>Último acesso:</span>
+            <strong>Ontem às 18:45</strong>
+          </div>
+
+          <div>
+            <span>Status:</span>
+            <strong class="status active">Ativo</strong>
+          </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="user-card__actions">
+          <button class="btn edit">
+            <i class="pi pi-pencil"></i>
+            Editar
+          </button>
+
+          <button class="btn remove">
+            <i class="pi pi-trash"></i>
+            Remover
+          </button>
+        </div>
+      </div>
+    }
+  </article>
+</section>

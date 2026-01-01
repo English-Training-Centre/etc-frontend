@@ -1,0 +1,14 @@
+<div class="flex w-full h-full">
+  <aside [ngClass]="isCollapsed ? 'w-80' : 'w-22'"
+    class="h-[100dvh] p-2 fixed"
+  >
+    <app-sidebar [isCollapsed]="isCollapsed"></app-sidebar>
+  </aside>
+
+  <div [ngClass]="isCollapsed ? 'ml-79' : 'ml-22'"
+    class="w-full pt-2 px-2"
+  >
+    <app-navbar [isCollapsed]="isCollapsed" (toggleCollapsed)="toggleCollapsed()"></app-navbar>
+    <main class="mt-10"> <router-outlet /> </main>
+  </div>
+</div>

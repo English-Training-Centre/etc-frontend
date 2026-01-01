@@ -1,0 +1,26 @@
+<nav class="p-4 w-full flex justify-between items-center"
+>
+  <div class="flex gap-10 items-center">
+    <div class="flex gap-3 items-center">
+      <img src="{{ logoUrl() }}" alt="logo" width="55">
+      <div class="title flex flex-col gap-0">
+        <h4>English Training Centre</h4>
+        <small>O Seu Futuro Começa Aqui</small>
+      </div>
+    </div>
+  </div>
+  <span class="flex gap-2 items-center">
+    <button pRipple
+      (click)="toggleTheme()"
+      class="btn_only_icon"
+    >
+      <i
+        class="pi"
+        [ngClass]="isDark() ? 'pi-sun' : 'pi-moon'"
+      ></i>
+    </button>
+    <button pRipple class="btn_only_icon flex gap-2 items-center">
+      PT
+    </button>
+  </span>
+</nav>

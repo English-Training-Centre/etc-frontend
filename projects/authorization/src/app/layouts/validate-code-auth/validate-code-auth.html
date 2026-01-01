@@ -1,0 +1,43 @@
+
+
+<section  animate.enter="enter-animation"
+  class="w-full flex justify-center items-top sm:mt-[5%]!"
+  >
+  <article class="login_card w-105 px-10 pt-7 pb-10 max-sm:w-full max-sm:shadow-none! max-sm:px-[10%]!">
+    <div class="mb-3 grid gap-8">
+      <h2 class="text-center">
+        Verify Your Email Address
+      </h2>
+      <p class="login_subtitle">
+        We've sent a verification code to : <strong>ramadan@gmail.com</strong>
+      </p>
+    </div>
+    <p-inputotp
+      [(ngModel)]="otpCode"
+      [length]="6"
+      (ngModelChange)="onOtpChange($event)"
+      [ngClass]="{ 'p-invalid': isInvalid }"
+    />
+
+    @if (loader)
+    {
+      <div class="mt-2 flex justify-center items-center gap-1">
+        <span class="otp_loader"></span>
+        <p class="text-sm points_loader">Verifying</p>
+      </div>
+    }
+    @if (isInvalid)
+    {
+      <p class="text-red-500">
+        Invalid code. Please try again.
+      </p>
+    }
+
+    <span class="flex justify-start mt-5">
+      <a pRipple type="button" class="btn-default text-sm"
+        [routerLink]="['/auth/reset-password']"
+      >Cancelar</a>
+    </span>
+  </article>
+</section>
+

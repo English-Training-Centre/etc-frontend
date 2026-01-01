@@ -1,0 +1,99 @@
+<section class="mb-20 w-full flex items-center justify-between">
+  <label>Gerir todas as despesas e obrigações financeiras da instituição</label>
+  <div class="default_btn">
+    <button pRipple
+      class="flex gap-4 justify-center items-center"
+    >
+      <i class="pi pi-plus" style="font-size: 0.7rem"></i>
+      <span>Nova Conta</span>
+    </button>
+  </div>
+</section>
+<section class="w-full flex flex-col gap-5 items-center">
+  <article class="w-full flex gap-2 items-center justify-between">
+    <div>
+      <p-floatlabel variant="on">
+        <p-datepicker
+          [(ngModel)]="dateValue"
+          dateFormat="dd/mm/yy"
+          inputId="on_label" showIcon iconDisplay="input"
+          class="w-60"
+          />
+          <label for="on_label">Por Período</label>
+      </p-floatlabel>
+    </div>
+    <div class="default_btn flex gap-2">
+      <button pRipple
+      >
+        Ontem
+      </button>
+      <button pRipple
+      >
+        Hoje
+      </button>
+    </div>
+  </article>
+  <article class="w-full flex gap-3">
+    <div class="w-full default_card">
+      <h2>
+        Total a Pagar
+      </h2>
+      <h3 #countUpQty_active>0</h3>
+    </div>
+    <div class="w-full default_card">
+      <h2>
+        Pago
+      </h2>
+      <h3 #countUpQty_active>0</h3>
+    </div>
+    <div class="w-full default_card">
+      <h2>
+        A Pagar
+      </h2>
+      <h3 #countUpQty_totalActiveQty>0</h3>
+    </div>
+    <div class="w-full default_card">
+      <h2>
+        Vencida(s)
+      </h2>
+      <h3 #countUpQty_inactive>0</h3>
+    </div>
+  </article>
+  <article class="w-full ag_grid">
+    <div class="w-full mb-1 mt-3 grid gap-2 min-sm:flex min-sm:justify-between min-sm:items-center">
+      <p-floatlabel variant="on" class="w-full xl:w-1/3 lg:w-1/3 min-sm:w-1/2 order-1">
+        <p-iconfield>
+          <p-inputicon class="pi pi-search" />
+          <input type="text" pInputText id="lbl_search" [(ngModel)]="searchInput" autocomplete="off" (input)="onSearch()" />
+        </p-iconfield>
+          <label for="lbl_search">
+            Search
+          </label>
+      </p-floatlabel>
+    </div>
+
+    @if (tableLoading)
+    {
+      <div class="loader">
+        <span class="card_loader"></span>
+      </div>
+    }
+    @else
+    {
+      <ag-grid-angular
+        class="ag_theme_alpine w-full"
+        [rowData]="rowData"
+        [columnDefs]="columnDefs"
+        [animateRows]="true"
+        [domLayout]="'autoHeight'"
+        [pagination]="false"
+        [headerHeight]="headerHeight"
+        [rowHeight]="rowHeight"
+        [rowSelection]="rowSelection"
+        [gridOptions]="gridOptions"
+        (gridReady)="onGridReady($event)"
+      >
+      </ag-grid-angular>
+    }
+  </article>
+</section>

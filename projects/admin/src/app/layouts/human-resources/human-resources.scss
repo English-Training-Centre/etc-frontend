@@ -1,0 +1,107 @@
+.user-card {
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  padding: 1.5rem;
+  text-align: center;
+  position: relative;
+
+  &__header {
+    height: 80px;
+    background: linear-gradient(135deg, #9333ea, #d946ef);
+    border-radius: 1rem 1rem 0 0;
+    margin: -1.5rem -1.5rem 3rem;
+  }
+
+  &__avatar {
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  &__role {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: #7c3aed;
+    color: #fff;
+    padding: 0.3rem 0.8rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    margin-top: 1.5rem;
+  }
+
+  &__name {
+    margin: 0.8rem 0 0.2rem;
+    font-weight: 600;
+    color: #0f172a;
+  }
+
+  &__email {
+    font-size: 0.85rem;
+    color: #64748b;
+    display: flex;
+    justify-content: center;
+    gap: 0.4rem;
+  }
+
+  &__meta {
+    margin: 1.2rem 0;
+    font-size: 0.8rem;
+    color: #475569;
+
+    div {
+      display: flex;
+      justify-content: space-between;
+      margin: 0.4rem 0;
+    }
+
+    .status.active {
+      background: #dcfce7;
+      color: #166534;
+      padding: 0.15rem 0.6rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    gap: 0.6rem;
+    margin-top: 1rem;
+
+    .btn {
+      flex: 1;
+      padding: 0.5rem;
+      border-radius: 0.6rem;
+      font-size: 0.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: all 150ms ease-in-out;
+    }
+
+    .edit {
+      color: #7c3aed;
+      border-color: #ddd6fe;
+
+      &:hover {
+        background: #f5f3ff;
+      }
+    }
+
+    .remove {
+      color: #dc2626;
+      border-color: #fee2e2;
+
+      &:hover {
+        background: #fef2f2;
+      }
+    }
+  }
+}

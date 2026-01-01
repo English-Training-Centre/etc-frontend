@@ -1,0 +1,21 @@
+<section animate.enter="enter-animation" class="w-full flex justify-center items-top sm:mt-[5%]!">
+  <article class="w-1/2 grid gap-10 justify-center">
+    <div class="w-full flex justify-center">
+      <i class="pi pi-check-circle text-[#00bf80]" style="font-size: 7rem;"></i>
+    </div>
+    <div class="flex flex-col gap-2 justify-center items-center">
+      <p class="font-bold text-3xl text-center text-[#00bf80]">
+        Your password has been reset successfully.
+      </p>
+      <label class="!text-center">
+        Agora você pode usar sua nova palavra-passe para entrar na sua conta!
+      </label>
+    </div>
+
+    <span class="flex justify-center mt-5">
+      <a pRipple type="button" class="btn-default text-sm"
+        [routerLink]="['/auth/sign-in']"
+      >Back to Sign In</a>
+    </span>
+  </article>
+</section>
