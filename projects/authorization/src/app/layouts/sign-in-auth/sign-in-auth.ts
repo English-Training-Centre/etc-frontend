@@ -5,7 +5,7 @@ import { IconFieldModule } from 'primeng/iconfield';
 import { InputIconModule } from 'primeng/inputicon';
 import { NgClass, CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Subscription, take } from 'rxjs';
+import { finalize, Subscription, take } from 'rxjs';
 import { RouterLink } from '@angular/router';
 import { MessageModule } from 'primeng/message';
 import { AuthRequestDTO } from '../../interfaces/auth-request-dto';
@@ -25,6 +25,9 @@ export class SignInAuth implements OnInit, OnDestroy {
   protected form!: FormGroup;
   protected isPasswordVisible = false;
   protected loading = false;
+
+  protected isUserError = false;
+  protected isPasswordError = false;
 
   ngOnInit(): void {
     this.initializeForm();
@@ -59,18 +62,25 @@ export class SignInAuth implements OnInit, OnDestroy {
     }
 
     this.loading = true;
+    this.form.disable();
 
     const credentials: AuthRequestDTO = this.form.value;
 
-    this.authService.signIn(credentials).pipe(take(1))
-    .subscribe({
-      next: () => {
-        this.form.reset();
-        this.loading = false;
-      },
-      error: () => {
-        this.loading = false;
-      }
-    });
+    this.subs.add(
+      this.authService.signIn(credentials).pipe(
+        take(1),
+        finalize(() => {
+          this.loading = false;
+          this.form.enable();
+        })
+      ).subscribe({
+        next: () => this.form.reset(),
+        error: () =>
+        {
+          this.isUserError = true;
+          this.isPasswordError = true;
+        }
+      })
+    );
   }
 }

@@ -1,8 +1,11 @@
-<section  animate.enter="enter-animation"
-  class="w-full flex justify-center items-top sm:mt-[5%]!"
-  >
+<section  animate.enter="enter-animation" class="w-full flex justify-center items-top sm:mt-[5%]!">
   <form class="login_card w-115 px-10 pt-7 pb-10 max-sm:w-full max-sm:shadow-none! max-sm:px-[10%]!"
   [formGroup]="form" (ngSubmit)="onSubmit()">
+    @if (isUserError || isPasswordError) {
+      <div class="w-full flex justify-center items-center">
+        <p-message severity="error">Nome de utilizador ou palavra-passe incorretos!</p-message>
+      </div>
+    }
     <div class="mb-3 grid gap-8">
       <h2>
         Bem-vindo de volta!
@@ -14,14 +17,14 @@
 
     <div class="w-full flex flex-wrap justify-center items-end gap-3">
       <div class="w-full flex flex-col gap-1">
-        <p-iconfield class="w-full">
-          <p-inputicon class="pi pi-user" [ngStyle]="{ color: isInvalid('username') ? 'rgb(244,119,121)' : null }"/>
+        <p-iconfield class="w-full" (click)="isUserError = false">
+          <p-inputicon class="pi pi-user" [ngStyle]="{ color: isInvalid('username') || isUserError ? 'rgb(244,119,121)' : null }"/>
           <input type="text" pInputText
             id="login_user"
             autocomplete="off"
             formControlName="username"
             placeholder="Nome de utilizador"
-            [invalid]="isInvalid('username')"
+            [invalid]="isInvalid('username') || isUserError"
           />
         </p-iconfield>
         @if (isInvalid('username')) {
@@ -30,14 +33,14 @@
       </div>
 
       <div class="w-full flex flex-col gap-1">
-        <p-iconfield class="w-full">
-          <p-inputicon class="pi pi-lock" [ngStyle]="{ color: isInvalid('password') ? 'rgb(244,119,121)' : null }"/>
+        <p-iconfield class="w-full" (click)="isPasswordError = false">
+          <p-inputicon class="pi pi-lock" [ngStyle]="{ color: isInvalid('password') || isPasswordError ? 'rgb(244,119,121)' : null }"/>
           <input type="{{ isPasswordVisible ? 'text' : 'password' }}" pInputText
             id="on_password"
             autocomplete="off"
             formControlName="password"
             placeholder="Palavra-passe"
-            [invalid]="isInvalid('password')"
+            [invalid]="isInvalid('password') || isPasswordError"
           />
           <p-inputicon
             class="password-icon"
@@ -60,7 +63,6 @@
 
     <div class="mt-8"></div>
     <button pRipple type="submit"
-      (click)="onSubmit()"
       [disabled]="form.invalid || loading"
       class="btn-sign-in w-full"
       >

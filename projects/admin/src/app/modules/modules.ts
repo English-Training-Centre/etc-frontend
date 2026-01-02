@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { Sidebar } from "../components/sidebar/sidebar";
 import { Navbar } from "../components/navbar/navbar";
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 import { NgClass } from '@angular/common';
 
 @Component({
@@ -11,9 +11,14 @@ import { NgClass } from '@angular/common';
   styleUrl: './modules.scss',
 })
 export class Modules implements OnInit {
+  private readonly router = inject(Router);
   protected isCollapsed : boolean = sessionStorage.getItem('is_collapsed') === 'false' ? false : true;
 
   ngOnInit(): void {
+    setTimeout(() => {
+      this.router.navigateByUrl('/admin/dashboard', { replaceUrl: true });
+    }, 0)
+
     sessionStorage.setItem('is_collapsed', `${this.isCollapsed}`);
   }
 

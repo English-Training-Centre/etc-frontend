@@ -4,14 +4,14 @@ export const routes: Routes = [
   {
     path: '',
     title: 'ETC · Loading...',
-    loadComponent: () => import('./layouts/initial-loader/initial-loader').then(l => l.InitialLoader)
-  },
-  {
-    path: 'auth',
-    title: 'ETC · Sign In',
     loadComponent: () => import('./module-auth/module-auth').then(a => a.ModuleAuth),
     children:
     [
+      {
+        path: '',
+        title: 'ETC · Loading...',
+        loadComponent: () => import('./layouts/initial-loader/initial-loader').then(l => l.InitialLoader)
+      },
       {
         path: 'sign-in',
         title: 'ETC · Sign In',
