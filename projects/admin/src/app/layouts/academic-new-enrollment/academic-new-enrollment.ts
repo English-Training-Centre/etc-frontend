@@ -12,12 +12,12 @@ import { SelectModule } from 'primeng/select';
 import { DatePickerModule } from 'primeng/datepicker';
 import { Subscription } from 'rxjs';
 import { Divider } from 'primeng/divider';
-import { FloatLabel } from 'primeng/floatlabel';
 import { InputNumber } from 'primeng/inputnumber';
+import { FloatLabelModule } from 'primeng/floatlabel';
 
 @Component({
   selector: 'app-academic-new-enrollment',
-  imports: [StepperModule, ButtonModule, Ripple, FormsModule, ReactiveFormsModule, IconFieldModule, InputIconModule, InputTextModule, InputMaskModule, SelectModule, DatePickerModule, CommonModule, FloatLabel, IconField, InputNumber, Divider],
+  imports: [StepperModule, ButtonModule, Ripple, FormsModule, ReactiveFormsModule, IconFieldModule, InputIconModule, InputTextModule, InputMaskModule, SelectModule, DatePickerModule, CommonModule, FloatLabelModule, InputNumber, Divider],
   templateUrl: './academic-new-enrollment.html',
   styleUrl: './academic-new-enrollment.scss',
 })

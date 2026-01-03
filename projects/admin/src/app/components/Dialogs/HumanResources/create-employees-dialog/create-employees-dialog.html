@@ -1,0 +1,77 @@
+<p-dialog
+  [(visible)]="isVisible"
+  [modal]="true"
+  [style]="{ width: '25rem' }"
+  position="top"
+>
+  <ng-template #header>
+    <div class="inline-flex items-center justify-center">
+      <h2>Registo de Novo Funcionário</h2>
+    </div>
+  </ng-template>
+  <span class="login_subtitle block mb-5">Complete o formulário para registar um novo funcionário no sistema.</span>
+  <form
+    [formGroup]="form"
+    class="my-1"
+  >
+    <div class="w-full flex flex-wrap justify-center items-center gap-3">
+      <div class="w-full flex flex-col gap-1">
+        <p-floatlabel variant="on" class="w-full">
+          <p-iconfield class="w-full" (click)="isUserError = false">
+            <p-inputicon class="pi pi-user" [ngStyle]="{ color: isInvalid('username') || isUserError ? 'rgb(244,119,121)' : null }"/>
+            <input type="text" pInputText
+              id="login_user"
+              autocomplete="off"
+              formControlName="username"
+              placeholder="Nome de utilizador"
+              [invalid]="isInvalid('username') || isUserError"
+            />
+          </p-iconfield>
+        </p-floatlabel>
+        @if (isInvalid('username')) {
+          <p-message severity="error" size="small" variant="simple">Digite o seu nome de utilizador</p-message>
+        }
+      </div>
+
+      <div class="w-full flex flex-col gap-1">
+        <p-floatlabel variant="on" class="w-full">
+          <p-iconfield class="w-full">
+            <p-inputicon class="pi pi-phone" />
+            <p-inputmask mask="(+258) 89 999 9999" id="on_phoneNumber" formControlName="phoneNumber" placeholder="(+258) 8X XXX XXXX"/>
+          </p-iconfield>
+            <label for="on_phoneNumber">Número de Telefone</label>
+        </p-floatlabel>
+        @if (isInvalid('phoneNumber')) {
+          <p-message severity="error" size="small" variant="simple">Digite o número de telefone</p-message>
+        }
+      </div>
+    </div>
+  </form>
+  <ng-template #footer>
+    <div class="mt-5 w-full flex justify-between items-center">
+      <button pRipple type="button"
+        class="btn_cancel"
+        (click)="isVisible = false"
+      >
+        Cancelar
+      </button>
+
+      <span class="default_btn">
+        <button pRipple type="submit"
+          class="cursor-pointer"
+          [disabled]="loading"
+          (click)="onSubmit()"
+        >
+          @if (loading) {
+            <div class="loader">
+              <span class="small_loader"></span>
+            </div>
+          }
+          @else {
+            Confirmar
+          }
+        </button>
+      </span>
+    </div>
+  </ng-template>
+</p-dialog>

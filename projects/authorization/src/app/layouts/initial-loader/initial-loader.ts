@@ -83,9 +83,12 @@ export class InitialLoader implements OnInit, OnDestroy {
         if (res.isSuccess && res.role) {
           if (res.role === 'admin') {
             targetRoute = '/admin';
+          } else if (res.role === 'employee') {
+            targetRoute = '/employee';
           } else if (res.role === 'student') {
             targetRoute = '/student';
-          } else {
+          }
+          else {
             targetRoute = '/'; // or '/dashboard' for other roles
           }
         }

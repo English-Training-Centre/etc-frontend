@@ -1,6 +1,7 @@
 <section class="w-full h-full flex flex-col gap-5">
   <article class="default_btn">
     <button pRipple type="button"
+      (click)="onDialogCreate()"
       class="flex gap-4 justify-center items-center"
     >
       <i class="pi pi-plus" style="font-size: 0.7rem"></i>
@@ -9,12 +10,10 @@
   </article>
   <article class="w-full grid grid-cols-4 gap-5">
     @for (n of [1,2,3]; track n) {
-      <div class="user-card">
-        <!-- Header -->
-        <div class="user-card__header"></div>
+      <div class="hr-card">
+        <div class="hr-card_header"></div>
 
-        <!-- Avatar -->
-        <div class="user-card__avatar flex justify-center items-center">
+        <div class="hr-card_avatar flex justify-center items-center">
           @if (false)
           {
             <p-avatar image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png" [style]="{ width: '88px', height: '88px' }" />
@@ -31,41 +30,52 @@
           }
         </div>
 
-        <!-- Role -->
-        <span class="user-card__role">
-          <i class="pi pi-shield"></i>
-          Administrador
+        <span class="hr-card_role">
+          <i class="pi pi-user"></i>
+          Formador
         </span>
 
-        <!-- Info -->
-        <h3 class="user-card__name">Carlos Mendes</h3>
+        <h3 class="hr-card_name">Carlos Mendes</h3>
 
-        <p class="user-card__email">
-          <i class="pi pi-envelope"></i>
-          carlos.mendes@empresa.com
-        </p>
-
-        <!-- Meta -->
-        <div class="user-card__meta">
+        <div class="hr-card_meta">
           <div>
-            <span>Último acesso:</span>
-            <strong>Ontem às 18:45</strong>
+            <span>Subcídio:</span>
+            <strong>15 000,00 MT</strong>
+          </div>
+          
+          <div>
+            <span>Telefone:</span>
+            <strong>+258 84 123 4567</strong>
           </div>
 
           <div>
-            <span>Status:</span>
+            <span>Email:</span>
+            <strong>carlos.mendes@gmail.com</strong>
+          </div>
+
+          <div>
+            <span>Utilizador:</span>
+            <strong>carlos123</strong>
+          </div>
+
+          <div>
+            <span>Permissão:</span>
+            <strong>Administrador</strong>
+          </div>
+
+          <div>
+            <span>Acesso ao sistema:</span>
             <strong class="status active">Ativo</strong>
           </div>
         </div>
 
-        <!-- Actions -->
-        <div class="user-card__actions">
-          <button class="btn edit">
+        <div class="hr-card_actions">
+          <button pRipple class="btn_update_normal btn edit">
             <i class="pi pi-pencil"></i>
             Editar
           </button>
 
-          <button class="btn remove">
+          <button pRipple class="btn_delete_normal btn remove">
             <i class="pi pi-trash"></i>
             Remover
           </button>

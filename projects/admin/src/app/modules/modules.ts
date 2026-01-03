@@ -3,10 +3,11 @@ import { Sidebar } from "../components/sidebar/sidebar";
 import { Navbar } from "../components/navbar/navbar";
 import { Router, RouterOutlet } from '@angular/router';
 import { NgClass } from '@angular/common';
+import { MainDialog } from "../components/Dialogs/DialogMain/main-dialog/main-dialog";
 
 @Component({
   selector: 'app-modules',
-  imports: [NgClass, Sidebar, Navbar, RouterOutlet],
+  imports: [NgClass, Sidebar, Navbar, RouterOutlet, MainDialog],
   templateUrl: './modules.html',
   styleUrl: './modules.scss',
 })

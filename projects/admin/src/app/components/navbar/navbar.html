@@ -14,7 +14,7 @@
             </div>
           </div>
         </label>
-        <button class="btn_only_icon">
+        <button pRipple class="btn_only_icon">
           <i class="pi pi-expand"></i>
         </button>
       </div>
@@ -42,21 +42,21 @@
 
   <ng-template #end>
     <div class="flex items-center gap-2">
-      <button class="btn_only_icon" (click)="toggleLanguage()">
+      <button pRipple class="btn_only_icon" (click)="toggleLanguage()">
         PT
       </button>
-      <button class="btn_only_icon" (click)="toggleTheme()">
+      <button pRipple class="btn_only_icon" (click)="toggleTheme()">
         <i
           class="pi"
           [ngClass]="isDark() ? 'pi-sun' : 'pi-moon'"
         ></i>
       </button>
-      <button class="btn_only_icon">
+      <button pRipple class="btn_only_icon">
         <p-overlaybadge severity="success">
           <i class="pi pi-comments"></i>
         </p-overlaybadge>
       </button>
-      <button class="btn_only_icon">
+      <button pRipple class="btn_only_icon">
         <p-overlaybadge severity="info">
           <i class="pi pi-bell"></i>
         </p-overlaybadge>

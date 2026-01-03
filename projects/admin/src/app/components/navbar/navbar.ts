@@ -7,10 +7,11 @@ import { Router } from '@angular/router';
 import { BreadCrumb, BreadCrumbRepository } from '../../repositories/bread-crumb-repository';
 import { OverlayBadgeModule } from 'primeng/overlaybadge';
 import { ThemeRepository } from '../../../../../core/src/lib/repositories/theme-repository';
+import { Ripple } from 'primeng/ripple';
 
 @Component({
   selector: 'app-navbar',
-  imports: [ Toolbar, NgClass, OverlayBadgeModule, AvatarModule, CommonModule ],
+  imports: [Ripple, Toolbar, NgClass, OverlayBadgeModule, AvatarModule, CommonModule],
   templateUrl: './navbar.html',
   styleUrl: './navbar.scss',
 })

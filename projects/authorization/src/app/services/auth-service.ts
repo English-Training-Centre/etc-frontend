@@ -105,6 +105,8 @@ export class AuthService {
   private navigateByRole(role: string): void {
     if (role === 'admin') {
       this.router.navigateByUrl('/admin', { replaceUrl: true });
+    } else if (role === 'employee') {
+      this.router.navigateByUrl('/employee', { replaceUrl: true });
     } else if (role === 'student') {
       this.router.navigateByUrl('/student', { replaceUrl: true });
     } else {

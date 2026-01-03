@@ -431,4 +431,72 @@
     }
   }
   // end ag-grid
+
+  p-dialog {
+    --p-dialog-background: var(--background-color);
+    --p-dialog-border-color: var(--background-color);
+    --p-dialog-color: var(--text-color);
+    --p-dialog-border-radius: 0.5rem;
+    --p-dialog-shadow: var(--menu-shadow);
+  }
+
+  .p-dialog .p-dialog-content,
+  .p-dialog-content {
+    scrollbar-width: thin;
+    scrollbar-color: oklch(89.432% 0.17218 163.04 / 0.2) transparent;
+
+    &::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
+      margin: 4px;
+    }
+
+    &::-webkit-scrollbar-track-piece {
+      background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: oklch(89.432% 0.17218 163.04 / 0.2);
+      border-radius: 10px;
+      border: 2px solid transparent;
+      background-clip: content-box;
+
+      &:hover {
+        background-color: oklch(89.432% 0.17218 163.04 / 0.6);
+      }
+    }
+
+    &::-webkit-scrollbar-corner {
+      background: transparent;
+    }
+  }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: oklch(89.432% 0.17218 163.04 / 0.2) transparent;
+  }
+
+  *::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: oklch(89.432% 0.17218 163.04 / 0.2);
+    border-radius: 10px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+  }
+
+  *::-webkit-scrollbar-thumb:hover {
+    background-color: oklch(89.432% 0.17218 163.04 / 0.6);
+  }
 }
