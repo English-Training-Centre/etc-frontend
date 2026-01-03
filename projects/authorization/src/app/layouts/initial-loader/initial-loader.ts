@@ -73,24 +73,31 @@ export class InitialLoader implements OnInit, OnDestroy {
   }
 
   private navigateBasedOnSessionResult(res: AuthResponseDTO): void {
-    setTimeout(() => {
-      this.showLoader = false;
+    let targetRoute = '/auth/sign-in';
 
-      let targetRoute = '/sign-in'; // Default: not logged in
+    if (res.isSuccess)
+    {
+      setTimeout(() => {
+        this.showLoader = false;
 
-      if (res.isSuccess && res.role) {
-        if (res.role === 'admin') {
-          targetRoute = '/admin/dashboard';
-        } else if (res.role === 'student') {
-          targetRoute = '/student';
-        } else {
-          targetRoute = '/'; // or '/dashboard' for other roles
+        if (res.isSuccess && res.role) {
+          if (res.role === 'admin') {
+            targetRoute = '/admin';
+          } else if (res.role === 'student') {
+            targetRoute = '/student';
+          } else {
+            targetRoute = '/'; // or '/dashboard' for other roles
+          }
         }
-      }
-      // If !res.isSuccess → stays '/sign-in'
 
+        this.router.navigateByUrl(targetRoute, { replaceUrl: true });
+      }, 3000);
+    }
+    else
+    {
+      this.showLoader = false;
       this.router.navigateByUrl(targetRoute, { replaceUrl: true });
-    }, 3000); // Show loader for at least 3 seconds after getting a response
+    }
   }
 
   ngOnDestroy(): void {

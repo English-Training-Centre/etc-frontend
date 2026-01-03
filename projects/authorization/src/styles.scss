@@ -218,6 +218,26 @@ footer { @extend .k2d-thin; }
   }
 }
 
+.sidebar_profile_btn {
+  a {
+    background: transparent;
+    height: 3.2rem;
+    width: 100%;
+    border-radius: 0.3rem;
+    color: var(--label-color);
+    transition: all 200ms ease-in-out;
+
+    &:hover {
+      color: var(--text-color);
+      background: oklch(70% 0.12991 158.169 / 0.1);
+
+      .active-line_btn {
+        border-color: var(--text-color);
+      }
+    }
+  }
+}
+
 .active-btn {
   background: linear-gradient(50deg, oklch(70% 0.12991 158.169 / 0.2), oklch(65% 0.12991 158.169 / 0.4), transparent) !important;
   @extend .k2d-medium;

@@ -1,17 +1,20 @@
 import { Routes } from '@angular/router';
+import { authGuard } from './guards/auth-guard';
+import { sessionGuard } from './guards/session-guard';
 
 export const routes: Routes = [
   {
     path: '',
     title: 'ETC · Loading...',
-    loadComponent: () => import('./module-auth/module-auth').then(a => a.ModuleAuth),
+    loadComponent: () => import('./layouts/initial-loader/initial-loader').then(l => l.InitialLoader)
+  },
+  {
+    path: 'auth',
+    title: 'ETC · Loading...',
+    loadComponent: () => import('./modules/module-auth/module-auth').then(a => a.ModuleAuth),
+    canActivate: [authGuard],
     children:
     [
-      {
-        path: '',
-        title: 'ETC · Loading...',
-        loadComponent: () => import('./layouts/initial-loader/initial-loader').then(l => l.InitialLoader)
-      },
       {
         path: 'sign-in',
         title: 'ETC · Sign In',
@@ -42,11 +45,16 @@ export const routes: Routes = [
   {
     path: 'admin',
     title: 'ETC · Admin',
-    loadChildren: () => import('../../../admin/src/app/app.routes').then(a => a.routes)
+    loadChildren: () => import('../../../admin/src/app/app.routes').then(a => a.routes),
+    canActivate: [sessionGuard]
   },
   {
     path: 'student',
     title: 'ETC · Student',
     loadChildren: () => import('../../../student/src/app/app.routes').then(s => s.routes)
+  },
+  {
+    path: '**',
+    loadComponent: () => import('./modules/page-not-found/page-not-found').then(a => a.PageNotFound)
   }
 ];

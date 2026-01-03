@@ -1,4 +1,4 @@
-import { Component, inject, Input, OnDestroy, OnInit, signal } from '@angular/core';
+import { Component, inject, Input, OnDestroy, OnInit } from '@angular/core';
 import { BreadCrumbRepository } from '../../repositories/bread-crumb-repository';
 import { NavigationEnd, Router, RouterModule } from '@angular/router';
 import { Ripple } from 'primeng/ripple';
@@ -6,10 +6,11 @@ import { DividerModule } from 'primeng/divider';
 import { BadgeModule } from 'primeng/badge';
 import { CommonModule } from '@angular/common';
 import { filter, Subscription } from 'rxjs';
+import { AvatarModule } from 'primeng/avatar';
 
 @Component({
   selector: 'app-sidebar',
-  imports: [RouterModule, Ripple, DividerModule, BadgeModule, CommonModule],
+  imports: [RouterModule, Ripple, DividerModule, BadgeModule, CommonModule, AvatarModule],
   templateUrl: './sidebar.html',
   styleUrl: './sidebar.scss',
 })
@@ -17,8 +18,6 @@ export class Sidebar implements OnInit, OnDestroy {
   @Input() isCollapsed: boolean = false;
 
   private readonly router = inject(Router);
-
-  protected readonly logoUrl = signal<string>('/assets/images/logo_etc.svg');
   private readonly subs = new Subscription();
 
   protected isOpenAcademic: boolean = false;

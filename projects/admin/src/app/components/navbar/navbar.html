@@ -62,22 +62,9 @@
         </p-overlaybadge>
       </button>
 
-      <button>
-        @if (false)
-        {
-          <p-avatar image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png" [style]="{ width: '40px', height: '40px' }" />
-        }
-        @else
-        {
-          <div class="flex justify-center">
-            <div
-              class="flex justify-center items-center bg-[#24704D] text-[#FFFFFF] text-xl font-bold w-10 h-10 rounded-full"
-            >
-              {{ ('Ramadan Ibraimo').charAt(0).toUpperCase() }}
-            </div>
-          </div>
-        }
-      </button>
+      <div class="flex justify-center items-center">
+        <img src="{{ logoUrl() }}" alt="logo" width="35">
+      </div>
     </div>
   </ng-template>
 </p-toolbar>

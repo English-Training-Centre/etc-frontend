@@ -27,6 +27,8 @@ export class Navbar implements OnInit, OnDestroy {
   protected isDark = signal<boolean>(false);
   private isBrowser = false;
 
+  protected readonly logoUrl = signal<string>('/assets/images/logo_etc.svg');
+
   constructor(@Inject(PLATFORM_ID) platformId: Object) {
     this.isBrowser = isPlatformBrowser(platformId);
 

@@ -1,19 +1,5 @@
 <section class="scrollbar_custom w-full h-full flex flex-col justify-between glass-sidebar overflow-y-auto!">
   <article>
-    <div class="flex flex-col gap-2 items-center justify-center mb-5">
-      <img src="{{ logoUrl() }}" alt="logo" width="55">
-      @if (isCollapsed)
-      {
-        <span class="sub-title truncate text-center
-          w-full
-          max-[450px]:w-[150px]
-          max-[370px]:w-[50px]"
-        >
-          English Training Centre
-        </span>
-      }
-    </div>
-
     <div class="sidebar_btn flex flex-col gap-1">
       <a  pRipple
           (click)="navigateTo([
@@ -410,13 +396,27 @@
       </a>
     </div>
   </article>
-  <article class="sidebar_btn mt-10">
+  <article class="sidebar_profile_btn mt-10">
     <a  pRipple
-        class="flex gap-3 justify-start items-center">
+      class="flex gap-3 justify-start items-center"
+    >
       <span class="active-span"></span>
-      <span class="flex gap-2 items-center">
-        <i class="pi pi-sign-out"></i>
-        @if (isCollapsed) { <p>Sign Out</p> }
+      <span class="flex gap-2 justify-start items-center">
+        @if (false)
+        {
+          <p-avatar image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png" [style]="{ width: '40px', height: '40px' }" />
+        }
+        @else
+        {
+          <div class="flex justify-start">
+            <div
+              class="flex justify-center items-center bg-[#24704D] text-[#FFFFFF] text-xl font-bold w-10 h-10 rounded-full"
+            >
+              {{ ('Ramadan Ibraimo').charAt(0).toUpperCase() }}
+            </div>
+          </div>
+        }
+        <span>Ramadan Ibraimo</span>
       </span>
     </a>
     @if (isCollapsed)
